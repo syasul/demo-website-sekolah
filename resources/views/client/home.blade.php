@@ -36,7 +36,7 @@
         
         <div class="relative">
             <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-                <img src="https://images.unsplash.com/photo-1523050335392-93851179ae22?q=80&w=1000" alt="Students" class="w-full h-full object-cover">
+                <img src="{{ asset('images/hero_students.png') }}" alt="Students" class="w-full h-full object-cover">
             </div>
             <!-- Floating Stats -->
             <div class="absolute -bottom-10 -left-10 glass p-6 rounded-2xl shadow-xl border border-white/20">
@@ -139,7 +139,7 @@
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="relative h-80 rounded-3xl overflow-hidden group shadow-lg">
-            <img src="https://images.unsplash.com/photo-1544928147-7972df46b283?q=80&w=800" alt="Medal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <img src="{{ asset('images/student_medal.png') }}" alt="Medal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
             <div class="absolute bottom-6 left-6 text-white">
                 <span class="px-2 py-1 bg-school-accent text-slate-900 text-[10px] font-black rounded mb-2 inline-block">INTERNATIONAL</span>
@@ -157,7 +157,7 @@
         </div>
         
         <div class="relative h-80 rounded-3xl overflow-hidden group shadow-lg">
-            <img src="https://images.unsplash.com/photo-1533250647041-d97fe47dd21b?q=80&w=800" alt="Art" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <img src="{{ asset('images/student_sports.png') }}" alt="Art" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
             <div class="absolute bottom-6 left-6 text-white">
                 <span class="px-2 py-1 bg-indigo-500 text-white text-[10px] font-black rounded mb-2 inline-block">PROVINCE</span>
@@ -178,7 +178,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/[0.08] transition-all">
                 <div class="aspect-video rounded-2xl overflow-hidden mb-6">
-                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7ee4?q=80&w=600" class="w-full h-full object-cover" alt="Event">
+                    <img src="{{ asset('images/hero_students.png') }}" class="w-full h-full object-cover" alt="Event">
                 </div>
                 <div class="text-xs text-school-primary font-bold mb-3">12 JUNI 2024</div>
                 <h3 class="text-xl font-bold mb-4">Ujian Akhir Semester Genap Dimulai Pekan Depan</h3>
@@ -188,7 +188,7 @@
             
             <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/[0.08] transition-all">
                 <div class="aspect-video rounded-2xl overflow-hidden mb-6">
-                    <img src="https://images.unsplash.com/photo-1540317580114-ed684c83fd3b?q=80&w=600" class="w-full h-full object-cover" alt="Event">
+                    <img src="{{ asset('images/student_sports.png') }}" class="w-full h-full object-cover" alt="Event">
                 </div>
                 <div class="text-xs text-school-primary font-bold mb-3">08 JUNI 2024</div>
                 <h3 class="text-xl font-bold mb-4">Kegiatan Class Meeting Antar Kelas Berlangsung Meriah</h3>
@@ -198,7 +198,7 @@
             
             <div class="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/[0.08] transition-all">
                 <div class="aspect-video rounded-2xl overflow-hidden mb-6">
-                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=600" class="w-full h-full object-cover" alt="Event">
+                    <img src="{{ asset('images/facility_hall.png') }}" class="w-full h-full object-cover" alt="Event">
                 </div>
                 <div class="text-xs text-school-primary font-bold mb-3">05 JUNI 2024</div>
                 <h3 class="text-xl font-bold mb-4">Webinar Karier: Memilih Universitas yang Tepat</h3>

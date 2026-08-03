@@ -19,9 +19,13 @@
             <span class="text-school-primary font-black uppercase tracking-widest text-xs">Aktivitas & Bakat</span>
             <h2 class="text-3xl md:text-5xl font-black text-slate-900 mt-4 leading-tight">Wadahi Potensi Tanpa Batas</h2>
         </div>
-            <div class="text-sm font-bold text-slate-600">Terdapat 25+ Pilihan Unit Kegiatan</div>
+        <div class="text-sm font-bold text-slate-600">Terdapat 25+ Pilihan Unit Kegiatan</div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="group bg-white rounded-[40px] overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all">
             <div class="h-56 overflow-hidden relative bg-slate-100">
-                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=600" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                <img src="{{ asset('images/student_sports.png') }}" class="w-full h-full object-cover transition-transform group-hover:scale-110">
                 <div class="absolute top-4 left-4 px-4 py-1.5 bg-white/90 backdrop-blur rounded-full text-[10px] font-black text-slate-900 uppercase">Olahraga</div>
             </div>
             <div class="p-8">
@@ -35,7 +39,7 @@
         
         <div class="group bg-white rounded-[40px] overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all">
             <div class="h-56 overflow-hidden relative bg-slate-100">
-                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                <img src="{{ asset('images/activity_robotics.png') }}" class="w-full h-full object-cover transition-transform group-hover:scale-110">
                 <div class="absolute top-4 left-4 px-4 py-1.5 bg-white/90 backdrop-blur rounded-full text-[10px] font-black text-slate-900 uppercase">Teknologi</div>
             </div>
             <div class="p-8">
@@ -49,7 +53,7 @@
 
         <div class="group bg-white rounded-[40px] overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all">
             <div class="h-56 overflow-hidden relative bg-slate-100">
-                <img src="https://images.unsplash.com/photo-1514320298324-ee4c78575084?q=80&w=600" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                <img src="{{ asset('images/activity_dance.png') }}" class="w-full h-full object-cover transition-transform group-hover:scale-110">
                 <div class="absolute top-4 left-4 px-4 py-1.5 bg-white/90 backdrop-blur rounded-full text-[10px] font-black text-slate-900 uppercase">Seni</div>
             </div>
             <div class="p-8">
@@ -68,7 +72,7 @@
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div class="order-2 lg:order-1">
             <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl relative">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800" class="w-full h-full object-cover">
+                <img src="{{ asset('images/activity_osis.png') }}" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-school-primary/20"></div>
             </div>
         </div>

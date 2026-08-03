@@ -35,7 +35,7 @@
     <!-- Featured News -->
     <div class="mb-20">
         <div class="group relative rounded-[50px] overflow-hidden shadow-2xl h-[500px]">
-            <img src="https://images.unsplash.com/photo-1524178232363-1fb28f74b0cd?q=80&w=1200" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <img src="{{ asset('images/hero_students.png') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
             <div class="absolute bottom-12 left-12 right-12 text-white max-w-3xl">
                 <span class="px-4 py-1.5 bg-school-primary text-white text-[10px] font-black rounded-full mb-6 inline-block uppercase tracking-widest">Headline</span>
@@ -50,10 +50,20 @@
 
     <!-- News Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        @php
+        $local_news_images = [
+            'hero_students.png',
+            'student_medal.png',
+            'student_sports.png',
+            'facility_library.png',
+            'facility_laboratory.png',
+            'activity_robotics.png'
+        ];
+        @endphp
         @for($i = 1; $i <= 6; $i++)
         <article class="group">
             <div class="aspect-[4/3] rounded-[40px] overflow-hidden mb-8 relative shadow-sm border border-slate-50 transition-all group-hover:shadow-xl group-hover:-translate-y-2">
-                <img src="https://picsum.photos/seed/{{ $i }}/800/600" class="w-full h-full object-cover" alt="News Image">
+                <img src="{{ asset('images/' . $local_news_images[($i - 1) % count($local_news_images)]) }}" class="w-full h-full object-cover" alt="News Image">
                 <div class="absolute top-6 right-6">
                     <div class="w-12 h-12 bg-white/90 backdrop-blur rounded-2xl flex items-center justify-center text-slate-900 text-xl font-black">
                         <i class="fa-solid fa-newspaper text-sm"></i>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle with smooth corners -->
+  <rect width="64" height="64" rx="18" fill="url(#primary-grad)" />
+
+  <!-- Cap skull/base under the diamond -->
+  <path d="M20,35 V40 C20,44.4 25.4,48 32,48 C38.6,48 44,40 44,40 V35" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- The mortarboard diamond top -->
+  <polygon points="32,16 54,27 32,38 10,27" fill="url(#accent-grad)" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Tassel (Tali Toga) -->
+  <path d="M43,27.5 V38 L46,42" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="46" cy="43.5" r="2.5" fill="#ffffff" />
+</svg>

@@ -40,7 +40,7 @@
         </div>
         <div class="relative">
             <div class="aspect-video rounded-3xl overflow-hidden shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=1000" alt="School History" class="w-full h-full object-cover">
+                <img src="{{ asset('images/school_sejarah.png') }}" alt="School History" class="w-full h-full object-cover">
             </div>
             <div class="absolute -bottom-6 -right-6 p-8 bg-school-accent rounded-3xl shadow-xl">
                 <div class="text-4xl font-black text-slate-900">15+</div>
@@ -94,7 +94,7 @@
             <!-- Senior -->
             <div class="p-6 bg-white rounded-3xl shadow-lg border border-slate-100 max-w-xs transition-transform hover:-translate-y-2">
                 <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-school-primary/20">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/teacher_male.png') }}" class="w-full h-full object-cover">
                 </div>
                 <h4 class="font-bold text-slate-900">Dr. Budi Santoso, M.Pd</h4>
                 <p class="text-xs text-school-primary font-bold uppercase tracking-widest mt-1">Kepala Sekolah</p>
@@ -133,7 +133,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="group bg-white p-6 rounded-3xl shadow-sm border border-slate-100 transition-all hover:bg-school-primary text-center">
                 <div class="w-32 h-32 rounded-3xl overflow-hidden mx-auto mb-6 transition-transform group-hover:scale-105">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/teacher_female.png') }}" class="w-full h-full object-cover">
                 </div>
                 <h4 class="font-bold text-slate-900 group-hover:text-white">Laila Rahayu, M.Pd</h4>
                 <p class="text-xs text-slate-500 font-medium group-hover:text-white/80">Guru Matematika</p>
@@ -141,7 +141,7 @@
             
             <div class="group bg-white p-6 rounded-3xl shadow-sm border border-slate-100 transition-all hover:bg-school-primary text-center">
                 <div class="w-32 h-32 rounded-3xl overflow-hidden mx-auto mb-6 transition-transform group-hover:scale-105">
-                    <img src="https://images.unsplash.com/photo-1544717297-fa15739a5447?q=80&w=400" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/teacher_male.png') }}" class="w-full h-full object-cover">
                 </div>
                 <h4 class="font-bold text-slate-900 group-hover:text-white">Ahmad Fauzi, S.Si</h4>
                 <p class="text-xs text-slate-500 font-medium group-hover:text-white/80">Guru Fisika</p>
@@ -149,7 +149,7 @@
 
             <div class="group bg-white p-6 rounded-3xl shadow-sm border border-slate-100 transition-all hover:bg-school-primary text-center">
                 <div class="w-32 h-32 rounded-3xl overflow-hidden mx-auto mb-6 transition-transform group-hover:scale-105">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/teacher_male.png') }}" class="w-full h-full object-cover">
                 </div>
                 <h4 class="font-bold text-slate-900 group-hover:text-white">Rizky Ramadhan, M.A</h4>
                 <p class="text-xs text-slate-500 font-medium group-hover:text-white/80">Guru Bahasa Inggris</p>
@@ -157,7 +157,7 @@
 
             <div class="group bg-white p-6 rounded-3xl shadow-sm border border-slate-100 transition-all hover:bg-school-primary text-center">
                 <div class="w-32 h-32 rounded-3xl overflow-hidden mx-auto mb-6 transition-transform group-hover:scale-105">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/teacher_female.png') }}" class="w-full h-full object-cover">
                 </div>
                 <h4 class="font-bold text-slate-900 group-hover:text-white">Diana Lestari, S.Pd</h4>
                 <p class="text-xs text-slate-500 font-medium group-hover:text-white/80">Guru Biologi</p>

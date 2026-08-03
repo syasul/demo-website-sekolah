@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Website Sekolah')</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +56,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 py-20 text-white mt-40">
+    <footer class="bg-slate-900 py-20 text-white">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
             <div class="col-span-2">
                 <div class="flex items-center gap-3 mb-6">

@@ -18,7 +18,7 @@
         <!-- Fasilitas Item -->
         <div class="space-y-8 group">
             <div class="aspect-[16/10] rounded-[50px] overflow-hidden shadow-2xl relative">
-                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1000" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <img src="{{ asset('images/facility_library.png') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute top-8 right-8 transition-transform group-hover:rotate-12">
                     <div class="w-16 h-16 bg-white/90 backdrop-blur rounded-3xl flex items-center justify-center text-slate-900 text-2xl shadow-xl">
                         <i class="fa-solid fa-book-open"></i>
@@ -38,7 +38,7 @@
 
         <div class="space-y-8 group md:mt-24">
             <div class="aspect-[16/10] rounded-[50px] overflow-hidden shadow-2xl relative">
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <img src="{{ asset('images/facility_laboratory.png') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute top-8 right-8 transition-transform group-hover:rotate-12">
                     <div class="w-16 h-16 bg-white/90 backdrop-blur rounded-3xl flex items-center justify-center text-slate-900 text-2xl shadow-xl">
                         <i class="fa-solid fa-flask-vial"></i>
@@ -58,7 +58,7 @@
 
         <div class="space-y-8 group">
             <div class="aspect-[16/10] rounded-[50px] overflow-hidden shadow-2xl relative">
-                <img src="https://images.unsplash.com/photo-1541534444538-232578508eb5?q=80&w=1000" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <img src="{{ asset('images/facility_sport.png') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute top-8 right-8 transition-transform group-hover:rotate-12">
                     <div class="w-16 h-16 bg-white/90 backdrop-blur rounded-3xl flex items-center justify-center text-slate-900 text-2xl shadow-xl">
                         <i class="fa-solid fa-volleyball"></i>
@@ -78,7 +78,7 @@
 
         <div class="space-y-8 group md:mt-24">
             <div class="aspect-[16/10] rounded-[50px] overflow-hidden shadow-2xl relative">
-                <img src="https://images.unsplash.com/photo-1560439514-4e9645039924?q=80&w=1000" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <img src="{{ asset('images/facility_hall.png') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute top-8 right-8 transition-transform group-hover:rotate-12">
                     <div class="w-16 h-16 bg-white/90 backdrop-blur rounded-3xl flex items-center justify-center text-slate-900 text-2xl shadow-xl">
                         <i class="fa-solid fa-microphone-lines"></i>
