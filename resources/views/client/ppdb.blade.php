@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section('title', 'PPDB & Kontak — SMA Task Master')
+@section('title', 'PPDB & Kontak — MA At-Taraqqie')
 
 @section('content')
 <!-- Header PPDB -->

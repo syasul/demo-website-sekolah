@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section('title', 'Berita & Pengumuman — SMA Task Master')
+@section('title', 'Berita & Pengumuman — MA At-Taraqqie')
 
 @section('content')
 <!-- Header Berita -->
@@ -10,7 +10,7 @@
             Kanal Informasi
         </div>
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-4 sm:mb-6 italic uppercase tracking-tighter">Berita <span class="text-school-primary">&</span> Info</h1>
-        <p class="text-sm sm:text-base text-slate-500 max-w-2xl leading-relaxed">Pusat informasi terkini, liputan kegiatan, dan pengumuman resmi SMA Task Master.</p>
+        <p class="text-sm sm:text-base text-slate-500 max-w-2xl leading-relaxed">Pusat informasi terkini, liputan kegiatan, dan pengumuman resmi MA At-Taraqqie.</p>
     </div>
 </section>
 

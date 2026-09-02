@@ -18,7 +18,7 @@
                 </span>
                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username"
                     class="w-full pl-12 sm:pl-14 pr-5 sm:pr-6 py-3.5 sm:py-4 bg-slate-800/50 border border-white/5 rounded-2xl sm:rounded-3xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all text-white placeholder-slate-600 shadow-inner"
-                    placeholder="nama@smataskmaster.sch.id">
+                    placeholder="nama@attaraqqie.sch.id">
             </div>
             @if($errors->has('email'))
                 <p class="text-rose-500 text-[10px] font-bold mt-1.5 ml-1 italic">{{ $errors->first('email') }}</p>

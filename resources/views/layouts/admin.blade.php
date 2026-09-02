@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Admin Dashboard') — SMA Task Master</title>
+    <title>@yield('title', 'Admin Dashboard') — MA At-Taraqqie</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,10 +30,8 @@
             <div class="p-6 sm:p-8 overflow-y-auto">
                 <div class="flex items-center justify-between mb-8 sm:mb-12">
                     <a href="/" class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-school-primary rounded-xl flex items-center justify-center text-white text-xl">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <span class="text-xl font-black tracking-tighter uppercase italic">Task Master</span>
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo MA At-Taraqqie" class="w-10 h-10 object-contain">
+                        <span class="text-xl font-black tracking-tight uppercase">At-Taraqqie</span>
                     </a>
                     <button id="admin-sidebar-close" aria-label="Tutup Menu" class="lg:hidden w-8 h-8 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
                         <i class="fa-solid fa-xmark"></i>

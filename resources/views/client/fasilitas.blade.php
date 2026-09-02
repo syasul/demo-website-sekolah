@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section('title', 'Fasilitas — SMA Task Master')
+@section('title', 'Fasilitas — MA At-Taraqqie')
 
 @section('content')
 <!-- Header Fasilitas -->

@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section('title', 'Virtual Tour 360° — SMA Task Master')
+@section('title', 'Virtual Tour 360° — MA At-Taraqqie')
 
 @section('head')
 <!-- Pannellum CSS -->
@@ -26,16 +26,16 @@
     .custom-hotspot {
         height: 30px;
         width: 30px;
-        background: #4f46e5;
+        background: #7a2b37;
         border-radius: 50%;
         border: 3px solid white;
         cursor: pointer;
         animation: pulse 2s infinite;
     }
     @keyframes pulse {
-        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7); }
-        70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); }
-        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(122, 43, 55, 0.7); }
+        70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(122, 43, 55, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(122, 43, 55, 0); }
     }
 </style>
 @endsection
@@ -49,7 +49,7 @@
                     Eksplorasi Interaktif
                 </div>
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-3 sm:mb-4 italic uppercase tracking-tighter">Virtual Tour</h1>
-                <p class="text-xs sm:text-base text-slate-500 leading-relaxed italic">Jelajahi setiap sudut SMA Task Master secara interaktif dengan teknologi 360°.</p>
+                <p class="text-xs sm:text-base text-slate-500 leading-relaxed italic">Jelajahi setiap sudut MA At-Taraqqie secara interaktif dengan teknologi 360°.</p>
             </div>
             <div class="flex flex-wrap gap-2 sm:gap-3">
                 <button onclick="loadScene('library')" class="px-4 sm:px-6 py-2 sm:py-2.5 bg-white border border-slate-200 rounded-full text-xs font-bold hover:bg-slate-900 hover:text-white transition-all uppercase shadow-sm">Perpustakaan</button>
@@ -93,7 +93,7 @@
     const viewer = pannellum.viewer('panorama', {
         "default": {
             "firstScene": "library",
-            "author": "SMA Task Master",
+            "author": "MA At-Taraqqie",
             "sceneFadeDuration": 1000,
             "autoLoad": true
         },

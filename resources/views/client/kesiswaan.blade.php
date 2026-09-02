@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section('title', 'Kesiswaan — SMA Task Master')
+@section('title', 'Kesiswaan — MA At-Taraqqie')
 
 @section('content')
 <!-- Header Kesiswaan -->
@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="order-1 lg:order-2 space-y-6 sm:space-y-8">
-            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-tight italic uppercase tracking-tighter">OSIS Task Master</h2>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-tight italic uppercase tracking-tighter">OSIS MA At-Taraqqie</h2>
             <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
                 Organisasi Siswa Intra Sekolah (OSIS) kami bukan sekadar organisasi biasa. Di sini, para pengurus dididik menjadi eksekutif muda yang mampu mengelola event besar, menjalin kemitraan, dan menjadi jembatan aspirasi bagi seluruh siswa.
             </p>

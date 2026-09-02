@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section('title', 'Profil Sekolah — SMA Task Master')
+@section('title', 'Profil Sekolah — MA At-Taraqqie')
 
 @section('content')
 <!-- Header Profil -->
@@ -11,7 +11,7 @@
             Tentang Kami
         </div>
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6">Profil Sekolah</h1>
-        <p class="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">Mengenal lebih dekat visi, misi, dan perjalanan SMA Task Master dalam mencetak generasi pemimpin dunia.</p>
+        <p class="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">Mengenal lebih dekat visi, misi, dan perjalanan MA At-Taraqqie dalam mencetak generasi pemimpin dunia yang berakhlak mulia.</p>
     </div>
 </section>
 
@@ -31,13 +31,13 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 items-center">
         <div class="space-y-6 sm:space-y-8">
             <div class="w-12 h-1 bg-school-primary"></div>
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-tight">Perjalanan Sejak Tahun 2009</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-tight">Perjalanan & Dedikasi</h2>
             <div class="space-y-4 sm:space-y-6 text-slate-600 leading-relaxed text-sm sm:text-base">
                 <p>
-                    SMA Task Master didirikan pada tahun 2009 dengan semangat untuk menyediakan pendidikan berkualitas yang tidak hanya fokus pada akademik, tetapi juga pembinaan karakter. Berawal dari lahan seluas 1 hektar, kini kami telah berkembang menjadi salah satu sekolah rujukan di kota ini.
+                    MA At-Taraqqie didirikan dengan semangat untuk menyediakan pendidikan berkualitas tinggi yang mengintegrasikan keilmuan modern, wawasan global, dan pembinaan akhlak mulia berlandaskan Al-Qur'an dan As-Sunnah.
                 </p>
                 <p>
-                    Dalam satu dekade terakhir, kami telah mencetak lebih dari 5.000 alumni yang kini tersebar di berbagai universitas ternama dan perusahaan global. Komitmen kami tetap sama: mendidik dengan hati, menginspirasi dengan prestasi.
+                    Kami berkomitmen untuk terus berinovasi dan mendidik generasi muda yang berprestasi, berdaya saing global, serta memiliki integritas moral yang kokoh.
                 </p>
             </div>
         </div>
@@ -181,7 +181,7 @@
         </div>
         <h2 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tighter italic">Terakreditasi A+ (Unggul)</h2>
         <p class="text-sm sm:text-base text-white/80 max-w-xl mx-auto leading-relaxed">
-            Berdasarkan Keputusan Badan Akreditasi Nasional Sekolah/Madrasah (BAN-S/M) Tahun 2023, SMA Task Master memperoleh nilai 98 dengan predikat Terakreditasi Unggul.
+            Berdasarkan Keputusan Badan Akreditasi Nasional Sekolah/Madrasah (BAN-S/M) Tahun 2023, MA At-Taraqqie memperoleh nilai 98 dengan predikat Terakreditasi Unggul.
         </p>
     </div>
 </section>

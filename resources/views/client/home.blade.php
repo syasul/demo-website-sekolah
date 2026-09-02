@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section('title', 'SMA Task Master — Unggul & Berkarakter')
+@section('title', 'MA At-Taraqqie — Unggul, Qur\'ani & Berkarakter')
 
 @section('content')
 <!-- Hero Section -->
@@ -17,7 +17,7 @@
             </div>
             
             <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-slate-900 leading-[1.15] sm:leading-[1.1]">
-                Wujudkan Masa Depan <span class="text-school-primary">Cemerlang</span> di SMA Task Master
+                Wujudkan Masa Depan <span class="text-school-primary">Cemerlang</span> di MA At-Taraqqie
             </h1>
             
             <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
@@ -130,7 +130,7 @@
     <div class="flex flex-col md:flex-row justify-between md:items-end mb-10 sm:mb-16 gap-6">
         <div class="max-w-xl">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 sm:mb-6">Prestasi Terkini</h2>
-            <p class="text-sm sm:text-base text-slate-500 leading-relaxed">Kebanggaan kami adalah melihat siswa-siswi SMA Task Master bersinar di ranah nasional maupun internasional.</p>
+            <p class="text-sm sm:text-base text-slate-500 leading-relaxed">Kebanggaan kami adalah melihat siswa-siswi MA At-Taraqqie bersinar di ranah nasional maupun internasional.</p>
         </div>
         <a href="/berita" class="self-start md:self-auto px-6 py-3 border border-slate-200 rounded-xl font-bold text-xs sm:text-sm hover:bg-slate-50 transition-all inline-flex items-center gap-2">
             <span>Lihat Lebih Banyak</span>

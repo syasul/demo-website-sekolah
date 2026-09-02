@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section('title', 'Akademik — SMA Task Master')
+@section('title', 'Akademik — MA At-Taraqqie')
 
 @section('content')
 <!-- Header Akademik -->

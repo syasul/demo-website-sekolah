@@ -5,8 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Login Portal — SMA Task Master</title>
+        <title>Login Portal — MA At-Taraqqie</title>
         <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.png') }}">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,10 +31,8 @@
             <div class="w-full sm:max-w-xl z-10 my-6">
                 <div class="text-center mb-8 sm:mb-12">
                     <a href="/" class="inline-flex items-center gap-2.5 sm:gap-3 mb-6 sm:mb-8 hover:scale-105 transition-transform">
-                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-school-primary rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl shadow-lg border border-white/20">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <span class="text-2xl sm:text-3xl font-black tracking-tight text-white uppercase italic">Task Master</span>
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo MA At-Taraqqie" class="w-12 h-12 sm:w-14 sm:h-14 object-contain filter drop-shadow-md">
+                        <span class="text-2xl sm:text-3xl font-black tracking-tight text-white uppercase">MA At-Taraqqie</span>
                     </a>
                     <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Portal Admin & Guru</h2>
                     <p class="text-slate-400 text-xs sm:text-sm mt-1.5 sm:mt-2">Silakan masuk untuk mengelola sistem informasi sekolah.</p>
@@ -43,7 +44,7 @@
                 </div>
                 
                 <div class="text-center mt-8 sm:mt-12 text-slate-500 text-xs italic">
-                    &copy; {{ date('Y') }} SMA Task Master. Secured Portal.
+                    &copy; {{ date('Y') }} MA At-Taraqqie. Secured Portal.
                 </div>
             </div>
         </div>
