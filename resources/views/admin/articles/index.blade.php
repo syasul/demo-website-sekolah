@@ -4,63 +4,65 @@
 @section('page_title', 'Semua Berita')
 
 @section('content')
-<div class="mb-8 flex justify-between items-center">
+<div class="mb-6 sm:mb-8 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
     <div class="space-y-1">
-        <h3 class="text-2xl font-black text-slate-900 uppercase italic">Daftar Konten</h3>
-        <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Kelola artikel, pengumuman, dan prestasi</p>
+        <h3 class="text-xl sm:text-2xl font-black text-slate-900 uppercase italic">Daftar Konten</h3>
+        <p class="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-widest">Kelola artikel, pengumuman, dan prestasi</p>
     </div>
-    <a href="{{ route('admin.articles.create') }}" class="px-6 py-3 bg-slate-900 text-white rounded-2xl font-bold text-sm shadow-xl hover:bg-school-primary transition-all flex items-center gap-2">
-        <i class="fa-solid fa-plus"></i> Tambah Berita
+    <a href="{{ route('admin.articles.create') }}" class="px-5 sm:px-6 py-3 bg-slate-900 text-white rounded-2xl font-bold text-xs sm:text-sm shadow-xl hover:bg-school-primary transition-all flex items-center justify-center gap-2 self-start sm:self-auto">
+        <i class="fa-solid fa-plus text-xs"></i>
+        <span>Tambah Berita</span>
     </a>
 </div>
 
 @if(session('success'))
-    <div class="mb-8 p-4 bg-emerald-50 border border-emerald-100 rounded-2xl text-emerald-600 text-sm font-bold flex items-center gap-3">
-        <i class="fa-solid fa-circle-check"></i> {{ session('success') }}
+    <div class="mb-6 sm:mb-8 p-4 bg-emerald-50 border border-emerald-100 rounded-2xl text-emerald-600 text-xs sm:text-sm font-bold flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-base"></i>
+        <span>{{ session('success') }}</span>
     </div>
 @endif
 
-<div class="bg-white rounded-[40px] shadow-sm border border-slate-100 overflow-hidden">
-    <div class="overflow-x-auto">
-        <table class="w-full text-left">
+<div class="bg-white rounded-2xl sm:rounded-[40px] shadow-sm border border-slate-100 overflow-hidden">
+    <div class="overflow-x-auto no-scrollbar">
+        <table class="w-full text-left min-w-[640px]">
             <thead>
-                <tr class="border-b border-slate-50">
-                    <th class="px-8 py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Informasi Utama</th>
-                    <th class="px-8 py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Kategori</th>
-                    <th class="px-8 py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Penulis</th>
-                    <th class="px-8 py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Tanggal</th>
-                    <th class="px-8 py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest text-right">Aksi</th>
+                <tr class="border-b border-slate-50 bg-slate-50/50">
+                    <th class="px-6 sm:px-8 py-4 sm:py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Informasi Utama</th>
+                    <th class="px-6 sm:px-8 py-4 sm:py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Kategori</th>
+                    <th class="px-6 sm:px-8 py-4 sm:py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Penulis</th>
+                    <th class="px-6 sm:px-8 py-4 sm:py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Tanggal</th>
+                    <th class="px-6 sm:px-8 py-4 sm:py-6 text-[10px] font-black text-slate-400 uppercase tracking-widest text-right">Aksi</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-50">
                 @forelse($articles as $article)
                 <tr class="group hover:bg-slate-50/50 transition-all">
-                    <td class="px-8 py-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl overflow-hidden shadow-sm bg-slate-100 shrink-0">
+                    <td class="px-6 sm:px-8 py-4 sm:py-6">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden shadow-sm bg-slate-100 shrink-0">
                                 @if($article->image)
-                                    <img src="{{ asset('storage/' . $article->image) }}" class="w-full h-full object-cover">
+                                    <img src="{{ asset('storage/' . $article->image) }}" class="w-full h-full object-cover" alt="{{ $article->title }}">
                                 @else
-                                    <div class="w-full h-full flex items-center justify-center text-slate-300 text-xl"><i class="fa-solid fa-image"></i></div>
+                                    <div class="w-full h-full flex items-center justify-center text-slate-300 text-lg sm:text-xl"><i class="fa-solid fa-image"></i></div>
                                 @endif
                             </div>
                             <div class="max-w-xs">
-                                <h4 class="font-bold text-slate-900 truncate uppercase tracking-tight text-sm">{{ $article->title }}</h4>
+                                <h4 class="font-bold text-slate-900 truncate uppercase tracking-tight text-xs sm:text-sm">{{ $article->title }}</h4>
                                 <p class="text-[10px] text-slate-400 font-medium truncate">{{ Str::limit(strip_tags($article->content), 50) }}</p>
                             </div>
                         </div>
                     </td>
-                    <td class="px-8 py-6">
-                        <span class="px-3 py-1 bg-slate-100 rounded-lg text-[10px] font-black text-slate-500 uppercase tracking-widest">{{ $article->category }}</span>
+                    <td class="px-6 sm:px-8 py-4 sm:py-6">
+                        <span class="px-2.5 sm:px-3 py-1 bg-slate-100 rounded-lg text-[10px] font-black text-slate-500 uppercase tracking-widest">{{ $article->category }}</span>
                     </td>
-                    <td class="px-8 py-6">
-                        <div class="text-xs font-bold text-slate-600">{{ $article->author->name }}</div>
+                    <td class="px-6 sm:px-8 py-4 sm:py-6">
+                        <div class="text-xs font-bold text-slate-600">{{ $article->author->name ?? 'Admin' }}</div>
                     </td>
-                    <td class="px-8 py-6">
+                    <td class="px-6 sm:px-8 py-4 sm:py-6">
                         <div class="text-xs font-bold text-slate-400 uppercase tracking-tighter">{{ $article->created_at->format('d M Y') }}</div>
                     </td>
-                    <td class="px-8 py-6 text-right">
-                        <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <td class="px-6 sm:px-8 py-4 sm:py-6 text-right">
+                        <div class="flex justify-end gap-1.5 sm:gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                             <a href="{{ route('admin.articles.edit', $article->id) }}" class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all">
                                 <i class="fa-solid fa-pen-to-square text-[10px]"></i>
                             </a>
@@ -75,9 +77,9 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5" class="px-8 py-20 text-center">
-                        <div class="text-4xl text-slate-100 mb-4"><i class="fa-solid fa-newspaper"></i></div>
-                        <p class="text-[10px] font-black uppercase tracking-widest text-slate-300">Belum ada berita yang diterbitkan</p>
+                    <td colspan="5" class="px-6 sm:px-8 py-16 sm:py-20 text-center">
+                        <div class="text-3xl sm:text-4xl text-slate-200 mb-3"><i class="fa-solid fa-newspaper"></i></div>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Belum ada berita yang diterbitkan</p>
                     </td>
                 </tr>
                 @endforelse
@@ -86,9 +88,10 @@
     </div>
     
     @if($articles->hasPages())
-    <div class="px-8 py-6 bg-slate-50 border-t border-slate-100">
+    <div class="px-6 sm:px-8 py-4 sm:py-6 bg-slate-50 border-t border-slate-100">
         {{ $articles->links() }}
     </div>
     @endif
 </div>
 @endsection
+

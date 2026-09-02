@@ -57,4 +57,11 @@
         box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
         border-color: var(--color-school-primary);
     }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }
