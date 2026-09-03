@@ -4,14 +4,14 @@
 
 @section('content')
 <!-- Header Profil -->
-<section class="py-14 sm:py-20 lg:py-24 bg-slate-900 text-white relative overflow-hidden">
+<section class="py-14 sm:py-20 lg:py-24 bg-[#130709] text-white relative overflow-hidden border-b border-school-primary/20">
     <div class="absolute inset-0 bg-school-primary/10 -z-0"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full border border-white/10 mb-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-school-accent">
             Tentang Kami
         </div>
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6">Profil Sekolah</h1>
-        <p class="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">Mengenal lebih dekat visi, misi, dan perjalanan MA At-Taraqqie dalam mencetak generasi pemimpin dunia yang berakhlak mulia.</p>
+        <p class="text-sm sm:text-base text-neutral-400 max-w-2xl leading-relaxed">Mengenal lebih dekat visi, misi, dan perjalanan MA At-Taraqqie dalam mencetak generasi pemimpin dunia yang berakhlak mulia.</p>
     </div>
 </section>
 
@@ -54,14 +54,14 @@
 </section>
 
 <!-- Visi & Misi -->
-<section id="visi-misi" class="py-14 sm:py-20 lg:py-32 bg-slate-900 text-white rounded-3xl sm:rounded-[50px] mx-3 sm:mx-6">
+<section id="visi-misi" class="py-14 sm:py-20 lg:py-32 bg-[#130709] border border-school-primary/20 text-white rounded-3xl sm:rounded-[50px] mx-3 sm:mx-6 shadow-2xl">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20">
         <div>
             <h2 class="text-2xl sm:text-3xl font-black mb-6 sm:mb-8 flex items-center gap-3 sm:gap-4">
-                <span class="w-10 h-10 bg-school-primary rounded-xl flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-eye"></i></span>
+                <span class="w-10 h-10 bg-school-primary rounded-xl flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-eye text-school-accent"></i></span>
                 <span>Visi Sekolah</span>
             </h2>
-            <p class="text-xl sm:text-2xl md:text-3xl font-bold leading-snug text-slate-100">
+            <p class="text-xl sm:text-2xl md:text-3xl font-bold leading-snug text-neutral-100">
                 "Menjadi pusat pendidikan unggul yang melahirkan pemimpin berwawasan global, berkarakter mulia, dan kompetitif secara internasional."
             </p>
         </div>
@@ -72,16 +72,16 @@
             </h2>
             <ul class="space-y-4 sm:space-y-6">
                 <li class="flex gap-3 sm:gap-4 items-start">
-                    <div class="text-school-primary text-lg sm:text-xl shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></div>
-                    <p class="text-sm sm:text-base text-slate-300">Menyelenggarakan pembelajaran berbasis teknologi yang inovatif dan adaptif.</p>
+                    <div class="text-school-accent text-lg sm:text-xl shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></div>
+                    <p class="text-sm sm:text-base text-neutral-300">Menyelenggarakan pembelajaran berbasis teknologi yang inovatif dan adaptif.</p>
                 </li>
                 <li class="flex gap-3 sm:gap-4 items-start">
-                    <div class="text-school-primary text-lg sm:text-xl shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></div>
-                    <p class="text-sm sm:text-base text-slate-300">Membina karakter siswa melalui program religius dan etika kepemimpinan.</p>
+                    <div class="text-school-accent text-lg sm:text-xl shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></div>
+                    <p class="text-sm sm:text-base text-neutral-300">Membina karakter siswa melalui program religius dan etika kepemimpinan.</p>
                 </li>
                 <li class="flex gap-3 sm:gap-4 items-start">
-                    <div class="text-school-primary text-lg sm:text-xl shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></div>
-                    <p class="text-sm sm:text-base text-slate-300">Mengembangkan bakat siswa dalam bidang non-akademik secara maksimal.</p>
+                    <div class="text-school-accent text-lg sm:text-xl shrink-0 mt-0.5"><i class="fa-solid fa-circle-check"></i></div>
+                    <p class="text-sm sm:text-base text-neutral-300">Mengembangkan bakat siswa dalam bidang non-akademik secara maksimal.</p>
                 </li>
             </ul>
         </div>

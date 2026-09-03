@@ -62,7 +62,7 @@
 
         <div class="mt-8 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
             <div class="p-6 sm:p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-start gap-4 sm:gap-6">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 shrink-0 text-base sm:text-lg"><i class="fa-solid fa-arrows-to-eye"></i></div>
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-school-primary/10 rounded-2xl flex items-center justify-center text-school-primary shrink-0 text-base sm:text-lg"><i class="fa-solid fa-arrows-to-eye"></i></div>
                 <div>
                     <h4 class="font-bold text-sm sm:text-base mb-1.5 text-slate-900">Kontrol Navigasi</h4>
                     <p class="text-xs text-slate-500 leading-relaxed italic">Klik dan seret untuk melihat sekeliling. Gunakan scroll untuk memperbesar area.</p>
@@ -72,7 +72,7 @@
                 <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 shrink-0 text-base sm:text-lg"><i class="fa-solid fa-location-crosshairs"></i></div>
                 <div>
                     <h4 class="font-bold text-sm sm:text-base mb-1.5 text-slate-900">Hotspot Interaktif</h4>
-                    <p class="text-xs text-slate-500 leading-relaxed italic">Klik pada ikon bulat biru untuk berpindah antar ruangan atau melihat info detail.</p>
+                    <p class="text-xs text-slate-500 leading-relaxed italic">Klik pada ikon penanda interaktif untuk berpindah antar ruangan atau melihat info detail.</p>
                 </div>
             </div>
             <div class="p-6 sm:p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-start gap-4 sm:gap-6">

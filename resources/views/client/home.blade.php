@@ -91,7 +91,7 @@
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div class="p-6 sm:p-8 card-premium rounded-3xl sm:rounded-[40px] group">
-                <div class="w-14 h-14 sm:w-16 sm:h-16 bg-blue-100 rounded-2xl sm:rounded-3xl flex items-center justify-center text-blue-600 text-2xl sm:text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/10">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 bg-school-primary/10 rounded-2xl sm:rounded-3xl flex items-center justify-center text-school-primary text-2xl sm:text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-school-primary/10">
                     <i class="fa-solid fa-microchip"></i>
                 </div>
                 <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-3 tracking-tight uppercase">Digital Literacy</h3>
@@ -141,7 +141,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <div class="relative h-72 sm:h-80 rounded-3xl overflow-hidden group shadow-lg">
             <img src="{{ asset('images/student_medal.png') }}" alt="Medal" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-transparent"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
                 <span class="px-2.5 py-1 bg-school-accent text-slate-900 text-[10px] font-black rounded mb-2 inline-block">INTERNATIONAL</span>
                 <h3 class="font-bold text-base sm:text-lg leading-snug uppercase">Juara 1 Olimpiade Fisika Dunia 2024</h3>
@@ -150,7 +150,7 @@
         
         <div class="relative h-72 sm:h-80 rounded-3xl overflow-hidden group shadow-lg">
             <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=800" alt="Group" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-transparent"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
                 <span class="px-2.5 py-1 bg-school-primary text-white text-[10px] font-black rounded mb-2 inline-block">NATIONAL</span>
                 <h3 class="font-bold text-base sm:text-lg leading-snug uppercase">Finalis Debat Bahasa Inggris Nasional</h3>
@@ -159,9 +159,9 @@
         
         <div class="relative h-72 sm:h-80 rounded-3xl overflow-hidden group shadow-lg sm:col-span-2 lg:col-span-1">
             <img src="{{ asset('images/student_sports.png') }}" alt="Art" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/30 to-transparent"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
-                <span class="px-2.5 py-1 bg-indigo-500 text-white text-[10px] font-black rounded mb-2 inline-block">PROVINCE</span>
+                <span class="px-2.5 py-1 bg-rose-600 text-white text-[10px] font-black rounded mb-2 inline-block">PROVINCE</span>
                 <h3 class="font-bold text-base sm:text-lg leading-snug uppercase">Medali Emas Kejuaraan Basket Pelajar</h3>
             </div>
         </div>
@@ -169,11 +169,11 @@
 </section>
 
 <!-- Berita & Pengumuman -->
-<section class="py-16 sm:py-24 lg:py-32 bg-slate-900 text-white">
+<section class="py-16 sm:py-24 lg:py-32 bg-[#130709] text-white border-y border-school-primary/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6">Berita <span class="text-school-primary">&</span> Pengumuman</h2>
-            <p class="text-sm sm:text-base text-slate-400">Ikuti perkembangan terbaru dan info penting seputar kegiatan sekolah kami.</p>
+            <p class="text-sm sm:text-base text-neutral-400">Ikuti perkembangan terbaru dan info penting seputar kegiatan sekolah kami.</p>
         </div>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -181,10 +181,10 @@
                 <div class="aspect-video rounded-2xl overflow-hidden mb-5">
                     <img src="{{ asset('images/hero_students.png') }}" class="w-full h-full object-cover" alt="Event">
                 </div>
-                <div class="text-xs text-school-primary font-bold mb-2">12 JUNI 2024</div>
+                <div class="text-xs text-school-primary-light font-bold mb-2">12 JUNI 2024</div>
                 <h3 class="text-lg sm:text-xl font-bold mb-3 leading-snug">Ujian Akhir Semester Genap Dimulai Pekan Depan</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-5">Diharapkan seluruh siswa mempersiapkan diri dengan baik dan menjaga kesehatan.</p>
-                <a href="/berita" class="text-xs sm:text-sm font-bold inline-flex items-center gap-2 hover:text-school-primary transition-colors">
+                <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed mb-5">Diharapkan seluruh siswa mempersiapkan diri dengan baik dan menjaga kesehatan.</p>
+                <a href="/berita" class="text-xs sm:text-sm font-bold inline-flex items-center gap-2 hover:text-school-accent-light transition-colors">
                     <span>Baca Selengkapnya</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
                 </a>
@@ -194,10 +194,10 @@
                 <div class="aspect-video rounded-2xl overflow-hidden mb-5">
                     <img src="{{ asset('images/student_sports.png') }}" class="w-full h-full object-cover" alt="Event">
                 </div>
-                <div class="text-xs text-school-primary font-bold mb-2">08 JUNI 2024</div>
+                <div class="text-xs text-school-primary-light font-bold mb-2">08 JUNI 2024</div>
                 <h3 class="text-lg sm:text-xl font-bold mb-3 leading-snug">Kegiatan Class Meeting Antar Kelas Berlangsung Meriah</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-5">Pertandingan futsal dan basket menjadi puncak acara yang paling ditunggu-tunggu.</p>
-                <a href="/berita" class="text-xs sm:text-sm font-bold inline-flex items-center gap-2 hover:text-school-primary transition-colors">
+                <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed mb-5">Pertandingan futsal dan basket menjadi puncak acara yang paling ditunggu-tunggu.</p>
+                <a href="/berita" class="text-xs sm:text-sm font-bold inline-flex items-center gap-2 hover:text-school-accent-light transition-colors">
                     <span>Baca Selengkapnya</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
                 </a>
@@ -207,10 +207,10 @@
                 <div class="aspect-video rounded-2xl overflow-hidden mb-5">
                     <img src="{{ asset('images/facility_hall.png') }}" class="w-full h-full object-cover" alt="Event">
                 </div>
-                <div class="text-xs text-school-primary font-bold mb-2">05 JUNI 2024</div>
+                <div class="text-xs text-school-primary-light font-bold mb-2">05 JUNI 2024</div>
                 <h3 class="text-lg sm:text-xl font-bold mb-3 leading-snug">Webinar Karier: Memilih Universitas yang Tepat</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-5">Menghadirkan narasumber dari berbagai universitas negeri ternama di Indonesia.</p>
-                <a href="/berita" class="text-xs sm:text-sm font-bold inline-flex items-center gap-2 hover:text-school-primary transition-colors">
+                <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed mb-5">Menghadirkan narasumber dari berbagai universitas negeri ternama di Indonesia.</p>
+                <a href="/berita" class="text-xs sm:text-sm font-bold inline-flex items-center gap-2 hover:text-school-accent-light transition-colors">
                     <span>Baca Selengkapnya</span>
                     <i class="fa-solid fa-chevron-right text-[10px]"></i>
                 </a>

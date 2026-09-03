@@ -25,7 +25,7 @@
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div class="p-5 sm:p-6 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4">
-                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 shrink-0">
+                    <div class="w-10 h-10 bg-school-primary/10 rounded-xl flex items-center justify-center text-school-primary shrink-0">
                         <i class="fa-solid fa-flask"></i>
                     </div>
                     <div>
@@ -45,7 +45,7 @@
             </div>
         </div>
         
-        <div class="bg-slate-900 rounded-3xl sm:rounded-[40px] p-6 sm:p-10 lg:p-12 text-white relative shadow-xl">
+        <div class="bg-[#130709] border border-school-primary/20 rounded-3xl sm:rounded-[40px] p-6 sm:p-10 lg:p-12 text-white relative shadow-xl">
             <h3 class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8">Struktur Kurikulum</h3>
             <div class="space-y-5 sm:space-y-6">
                 <div class="pb-5 sm:pb-6 border-b border-white/10 uppercase">
@@ -114,7 +114,7 @@
                     </div>
                     <p class="text-slate-500 mb-6 sm:mb-8 text-xs sm:text-sm leading-relaxed">Unduh kalender akademik terbaru tahun ajaran 2024/2025 untuk melihat jadwal libur, ujian, dan kegiatan sekolah.</p>
                 </div>
-                <a href="#" class="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-slate-900 text-white rounded-2xl font-bold text-xs sm:text-sm hover:bg-slate-800 transition-all shadow-md self-start">
+                <a href="#" class="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#130709] text-white rounded-2xl font-bold text-xs sm:text-sm hover:bg-school-primary transition-all shadow-md self-start">
                     <span>Unduh Kalender .PDF</span>
                     <i class="fa-solid fa-file-pdf"></i>
                 </a>
@@ -131,8 +131,8 @@
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-        <div class="p-6 sm:p-8 rounded-3xl bg-sky-50 border border-sky-100">
-            <div class="text-2xl sm:text-3xl text-sky-600 mb-4 sm:mb-6"><i class="fa-solid fa-laptop-code"></i></div>
+        <div class="p-6 sm:p-8 rounded-3xl bg-rose-50 border border-rose-100">
+            <div class="text-2xl sm:text-3xl text-school-primary mb-4 sm:mb-6"><i class="fa-solid fa-laptop-code"></i></div>
             <h4 class="text-lg sm:text-xl font-bold text-slate-900 mb-3 tracking-tight uppercase">Hybrid Learning</h4>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">Kombinasi belajar tatap muka dengan platform digital interaktif yang bisa diakses kapan saja.</p>
         </div>

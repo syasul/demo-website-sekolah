@@ -56,57 +56,57 @@
     </nav>
 
     <!-- Mobile Drawer Overlay -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
 
     <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu-drawer" class="fixed top-0 right-0 w-[85%] max-w-sm h-full bg-white dark:bg-slate-900 z-50 shadow-2xl translate-x-full transition-transform duration-300 ease-out flex flex-col lg:hidden border-l border-slate-200 dark:border-slate-800">
-        <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+    <div id="mobile-menu-drawer" class="fixed top-0 right-0 w-[85%] max-w-sm h-full bg-white dark:bg-neutral-900 z-50 shadow-2xl translate-x-full transition-transform duration-300 ease-out flex flex-col lg:hidden border-l border-neutral-200 dark:border-neutral-800">
+        <div class="p-6 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
             <div class="flex items-center gap-2.5">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo MA At-Taraqqie" class="w-8 h-8 object-contain">
-                <span class="text-base font-black tracking-tight text-slate-900 dark:text-white uppercase">Menu Navigasi</span>
+                <span class="text-base font-black tracking-tight text-neutral-900 dark:text-white uppercase">Menu Navigasi</span>
             </div>
-            <button id="mobile-menu-close" aria-label="Tutup Menu" class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+            <button id="mobile-menu-close" aria-label="Tutup Menu" class="w-9 h-9 flex items-center justify-center rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 transition-colors">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
         </div>
 
         <div class="flex-1 overflow-y-auto p-6 space-y-2">
-            <a href="/" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('/') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800' }} transition-colors">
+            <a href="/" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('/') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800' }} transition-colors">
                 <i class="fa-solid fa-house w-5 text-center"></i>
                 <span>Beranda</span>
             </a>
-            <a href="/profil" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('profil*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800' }} transition-colors">
+            <a href="/profil" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('profil*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800' }} transition-colors">
                 <i class="fa-solid fa-school w-5 text-center"></i>
                 <span>Profil Sekolah</span>
             </a>
-            <a href="/akademik" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('akademik*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800' }} transition-colors">
+            <a href="/akademik" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('akademik*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800' }} transition-colors">
                 <i class="fa-solid fa-book-open-reader w-5 text-center"></i>
                 <span>Akademik</span>
             </a>
-            <a href="/fasilitas" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('fasilitas*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800' }} transition-colors">
+            <a href="/fasilitas" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('fasilitas*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800' }} transition-colors">
                 <i class="fa-solid fa-building-columns w-5 text-center"></i>
                 <span>Fasilitas</span>
             </a>
-            <a href="/kesiswaan" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('kesiswaan*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800' }} transition-colors">
+            <a href="/kesiswaan" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('kesiswaan*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800' }} transition-colors">
                 <i class="fa-solid fa-users-line w-5 text-center"></i>
                 <span>Kesiswaan</span>
             </a>
-            <a href="/berita" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('berita*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800' }} transition-colors">
+            <a href="/berita" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('berita*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800' }} transition-colors">
                 <i class="fa-solid fa-newspaper w-5 text-center"></i>
                 <span>Berita & Artikel</span>
             </a>
-            <a href="/virtual-tour" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('virtual-tour*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800' }} transition-colors">
+            <a href="/virtual-tour" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold {{ request()->is('virtual-tour*') ? 'bg-school-primary text-white shadow-md shadow-school-primary/20' : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800' }} transition-colors">
                 <i class="fa-solid fa-vr-cardboard w-5 text-center"></i>
                 <span>Virtual Tour 360°</span>
             </a>
         </div>
 
-        <div class="p-6 border-t border-slate-100 dark:border-slate-800 space-y-3">
+        <div class="p-6 border-t border-neutral-100 dark:border-neutral-800 space-y-3">
             <a href="/ppdb" class="w-full flex items-center justify-center gap-2 py-3.5 bg-school-primary text-white text-sm font-bold rounded-xl shadow-lg shadow-school-primary/20 hover:opacity-95 transition-all">
                 <span>Daftar PPDB Online</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
-            <div class="flex items-center justify-center gap-4 pt-2 text-slate-400 text-base">
+            <div class="flex items-center justify-center gap-4 pt-2 text-neutral-400 text-base">
                 <a href="https://www.instagram.com/ma_attaraqqie" target="_blank" rel="noopener noreferrer" class="hover:text-school-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" class="hover:text-school-primary transition-colors"><i class="fa-brands fa-facebook"></i></a>
                 <a href="#" class="hover:text-school-primary transition-colors"><i class="fa-brands fa-youtube"></i></a>
@@ -119,24 +119,24 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 py-12 sm:py-16 lg:py-20 text-white">
+    <footer class="bg-[#130709] py-12 sm:py-16 lg:py-20 text-white border-t border-school-primary/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
             <div class="sm:col-span-2">
                 <div class="flex items-center gap-3 mb-6">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo MA At-Taraqqie" class="w-10 h-10 object-contain">
                     <span class="text-xl sm:text-2xl font-black tracking-tight text-white uppercase">MA At-Taraqqie</span>
                 </div>
-                <p class="text-slate-400 text-sm max-w-md leading-relaxed mb-6">
+                <p class="text-neutral-400 text-sm max-w-md leading-relaxed mb-6">
                     Mencetak generasi unggul, berkarakter, dan siap menghadapi tantangan dunia masa depan dengan integritas serta kompetensi tinggi.
                 </p>
                 <div class="flex gap-3">
-                    <a href="https://www.instagram.com/ma_attaraqqie" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/30 transition-all">
+                    <a href="https://www.instagram.com/ma_attaraqqie" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center hover:bg-school-primary hover:border-school-primary hover:text-white transition-all">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/30 transition-all">
+                    <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center hover:bg-school-primary hover:border-school-primary hover:text-white transition-all">
                         <i class="fa-brands fa-facebook"></i>
                     </a>
-                    <a href="#" aria-label="YouTube" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/30 transition-all">
+                    <a href="#" aria-label="YouTube" class="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center hover:bg-school-primary hover:border-school-primary hover:text-white transition-all">
                         <i class="fa-brands fa-youtube"></i>
                     </a>
                 </div>
@@ -144,35 +144,35 @@
             
             <div>
                 <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6">Navigasi</h4>
-                <ul class="space-y-3 sm:space-y-4 text-sm text-slate-400">
-                    <li><a href="/" class="hover:text-white transition-colors">Beranda</a></li>
-                    <li><a href="/profil" class="hover:text-white transition-colors">Profil Sekolah</a></li>
-                    <li><a href="/akademik" class="hover:text-white transition-colors">Akademik</a></li>
-                    <li><a href="/fasilitas" class="hover:text-white transition-colors">Fasilitas</a></li>
-                    <li><a href="/kesiswaan" class="hover:text-white transition-colors">Kesiswaan</a></li>
-                    <li><a href="/berita" class="hover:text-white transition-colors">Berita Terkini</a></li>
+                <ul class="space-y-3 sm:space-y-4 text-sm text-neutral-400">
+                    <li><a href="/" class="hover:text-school-accent-light transition-colors">Beranda</a></li>
+                    <li><a href="/profil" class="hover:text-school-accent-light transition-colors">Profil Sekolah</a></li>
+                    <li><a href="/akademik" class="hover:text-school-accent-light transition-colors">Akademik</a></li>
+                    <li><a href="/fasilitas" class="hover:text-school-accent-light transition-colors">Fasilitas</a></li>
+                    <li><a href="/kesiswaan" class="hover:text-school-accent-light transition-colors">Kesiswaan</a></li>
+                    <li><a href="/berita" class="hover:text-school-accent-light transition-colors">Berita Terkini</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6">Kontak & Lokasi</h4>
-                <ul class="space-y-3 sm:space-y-4 text-sm text-slate-400">
+                <ul class="space-y-3 sm:space-y-4 text-sm text-neutral-400">
                     <li class="flex gap-3 items-start">
-                        <i class="fa-solid fa-location-dot mt-1 text-school-primary shrink-0"></i>
+                        <i class="fa-solid fa-location-dot mt-1 text-school-accent shrink-0"></i>
                         <span>Jl. Pendidikan No. 123, Kota Malang, Jawa Timur</span>
                     </li>
                     <li class="flex gap-3 items-center">
-                        <i class="fa-solid fa-phone text-school-primary shrink-0"></i>
+                        <i class="fa-solid fa-phone text-school-accent shrink-0"></i>
                         <span>(0341) 123456</span>
                     </li>
                     <li class="flex gap-3 items-center">
-                        <i class="fa-solid fa-envelope text-school-primary shrink-0"></i>
+                        <i class="fa-solid fa-envelope text-school-accent shrink-0"></i>
                         <span>info@attaraqqie.sch.id</span>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 mt-8 sm:mt-12 border-t border-white/5 text-center text-xs text-slate-500 italic">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 mt-8 sm:mt-12 border-t border-white/5 text-center text-xs text-neutral-500 italic">
             &copy; {{ date('Y') }} MA At-Taraqqie. All rights reserved.
         </div>
     </footer>

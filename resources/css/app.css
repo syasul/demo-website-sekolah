@@ -16,19 +16,19 @@
 
 @layer base {
     :root {
-        --bg-main: #fcfdfe; /* Slightly off-white for depth */
+        --bg-main: #fcfbfa; /* Slightly warm off-white for depth */
         --bg-card: #ffffff;
-        --border-subtle: rgba(15, 23, 42, 0.06);
-        --text-main: #0f172a;
-        --text-muted: #64748b;
+        --border-subtle: rgba(24, 24, 27, 0.06);
+        --text-main: #18181b;
+        --text-muted: #71717a;
     }
 
     .dark {
-        --bg-main: #020617;
-        --bg-card: #0f172a;
+        --bg-main: #0c0506;
+        --bg-card: #140709;
         --border-subtle: rgba(255, 255, 255, 0.08);
-        --text-main: #f8fafc;
-        --text-muted: #94a3b8;
+        --text-main: #fafafa;
+        --text-muted: #a1a1aa;
     }
 
     body {

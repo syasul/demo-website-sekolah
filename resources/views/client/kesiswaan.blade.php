@@ -4,14 +4,14 @@
 
 @section('content')
 <!-- Header Kesiswaan -->
-<section class="py-14 sm:py-20 lg:py-24 bg-indigo-900 text-white relative overflow-hidden">
+<section class="py-14 sm:py-20 lg:py-24 bg-gradient-to-br from-[#5a1c25] via-[#7a2b37] to-[#48121a] text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full border border-white/10 mb-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-school-accent">
             Aktivitas & Organisasi
         </div>
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black mb-4 sm:mb-6">Kesiswaan</h1>
-        <p class="text-indigo-200 text-sm sm:text-base max-w-2xl leading-relaxed">Membangun karakter, mengasah kepemimpinan, dan mewadahi kreativitas siswa melalui berbagai organisasi dan kegiatan ekstrakurikuler.</p>
+        <p class="text-rose-100/90 text-sm sm:text-base max-w-2xl leading-relaxed">Membangun karakter, mengasah kepemimpinan, dan mewadahi kreativitas siswa melalui berbagai organisasi dan kegiatan ekstrakurikuler.</p>
     </div>
 </section>
 
@@ -91,7 +91,7 @@
             </p>
             <div class="space-y-3 sm:space-y-4">
                 <div class="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 shrink-0"><i class="fa-solid fa-handshake"></i></div>
+                    <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-amber-700 shrink-0"><i class="fa-solid fa-handshake"></i></div>
                     <span class="font-bold text-xs sm:text-sm text-slate-900">Hubungan Masyarakat & Kemitraan</span>
                 </div>
                 <div class="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
@@ -111,11 +111,11 @@
 <section class="py-16 sm:py-24 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         <!-- Tatib -->
-        <div class="bg-slate-900 rounded-3xl sm:rounded-[40px] lg:rounded-[50px] p-6 sm:p-10 lg:p-12 text-white flex flex-col justify-between shadow-xl">
+        <div class="bg-[#130709] border border-school-primary/20 rounded-3xl sm:rounded-[40px] lg:rounded-[50px] p-6 sm:p-10 lg:p-12 text-white flex flex-col justify-between shadow-xl">
             <div>
-                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-2xl flex items-center justify-center text-xl sm:text-2xl mb-6"><i class="fa-solid fa-gavel"></i></div>
+                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-2xl flex items-center justify-center text-xl sm:text-2xl mb-6"><i class="fa-solid fa-gavel text-school-accent"></i></div>
                 <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 italic uppercase tracking-tight">Tata Tertib Siswa</h3>
-                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8">
+                <p class="text-neutral-300 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8">
                     Kedisiplinan adalah kunci kesuksesan. Kami menerapkan poin kedisiplinan yang transparan dan dapat dipantau oleh orang tua secara real-time.
                 </p>
             </div>
