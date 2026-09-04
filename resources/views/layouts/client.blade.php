@@ -46,6 +46,31 @@
                         <span>Daftar PPDB</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
+
+                    @auth
+                        @if(Auth::user()->isAdmin())
+                            <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center gap-2 px-4 py-2 sm:py-2.5 bg-slate-900 text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-slate-800 transition-all shadow-md">
+                                <i class="fa-solid fa-gauge-high text-xs text-emerald-400"></i>
+                                <span class="hidden md:inline">Admin</span>
+                            </a>
+                        @elseif(Auth::user()->isGuru())
+                            <a href="{{ route('guru.dashboard') }}" class="inline-flex items-center gap-2 px-4 py-2 sm:py-2.5 bg-slate-900 text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-slate-800 transition-all shadow-md">
+                                <i class="fa-solid fa-chalkboard-user text-xs text-emerald-400"></i>
+                                <span class="hidden md:inline">Portal Guru</span>
+                            </a>
+                        @elseif(Auth::user()->isSiswa())
+                            <a href="{{ route('siswa.dashboard') }}" class="inline-flex items-center gap-2 px-4 py-2 sm:py-2.5 bg-slate-900 text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-slate-800 transition-all shadow-md">
+                                <i class="fa-solid fa-graduation-cap text-xs text-emerald-400"></i>
+                                <span class="hidden md:inline">Portal Siswa</span>
+                            </a>
+                        @endif
+                    @else
+                        <a href="{{ route('login') }}" class="inline-flex items-center gap-2 px-4 py-2 sm:py-2.5 bg-slate-900 text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-slate-800 transition-all shadow-md">
+                            <i class="fa-solid fa-arrow-right-to-bracket text-xs text-emerald-400"></i>
+                            <span>Masuk</span>
+                        </a>
+                    @endauth
+
                     <!-- Mobile Hamburger Button -->
                     <button id="mobile-menu-btn" aria-label="Buka Menu" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-xl hover:bg-slate-200 transition-colors">
                         <i class="fa-solid fa-bars-staggered"></i>
@@ -106,6 +131,30 @@
                 <span>Daftar PPDB Online</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
+
+            @auth
+                @if(Auth::user()->isAdmin())
+                    <a href="{{ route('admin.dashboard') }}" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl shadow-md">
+                        <i class="fa-solid fa-gauge-high text-emerald-400"></i>
+                        <span>Buka Dashboard Admin</span>
+                    </a>
+                @elseif(Auth::user()->isGuru())
+                    <a href="{{ route('guru.dashboard') }}" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl shadow-md">
+                        <i class="fa-solid fa-chalkboard-user text-emerald-400"></i>
+                        <span>Buka Portal Guru</span>
+                    </a>
+                @elseif(Auth::user()->isSiswa())
+                    <a href="{{ route('siswa.dashboard') }}" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl shadow-md">
+                        <i class="fa-solid fa-graduation-cap text-emerald-400"></i>
+                        <span>Buka Portal Siswa</span>
+                    </a>
+                @endif
+            @else
+                <a href="{{ route('login') }}" class="w-full flex items-center justify-center gap-2 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl shadow-md">
+                    <i class="fa-solid fa-arrow-right-to-bracket text-emerald-400"></i>
+                    <span>Masuk Portal Sekolah</span>
+                </a>
+            @endauth
             <div class="flex items-center justify-center gap-4 pt-2 text-neutral-400 text-base">
                 <a href="https://www.instagram.com/ma_attaraqqie" target="_blank" rel="noopener noreferrer" class="hover:text-school-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" class="hover:text-school-primary transition-colors"><i class="fa-brands fa-facebook"></i></a>

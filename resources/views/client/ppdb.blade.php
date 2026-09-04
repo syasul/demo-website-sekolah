@@ -67,35 +67,113 @@
         </div>
     </div>
 
-    <!-- Contact Form Card -->
+    <!-- Registration Form Card -->
     <div class="lg:-mt-24 relative z-20">
         <div class="bg-white rounded-3xl sm:rounded-[40px] lg:rounded-[50px] p-6 sm:p-10 md:p-12 shadow-2xl border border-slate-100">
-            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-6 sm:mb-8 italic uppercase tracking-tighter">Kirim Pesan</h2>
-            <form action="#" class="space-y-4 sm:space-y-6">
+            <div class="flex items-center justify-between mb-6 sm:mb-8 pb-4 border-b border-slate-100">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 italic uppercase tracking-tighter">Formulir PPDB</h2>
+                    <p class="text-xs text-slate-500 mt-1">Isi identitas calon siswa dengan data yang valid.</p>
+                </div>
+                <a href="{{ route('ppdb.status') }}" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all shrink-0 flex items-center gap-1.5">
+                    <i class="fa-solid fa-magnifying-glass text-[10px]"></i>
+                    <span>Cek Status</span>
+                </a>
+            </div>
+
+            @if(session('ppdb_success'))
+                <div class="mb-8 p-6 rounded-3xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-3">
+                    <div class="flex items-center gap-3 text-emerald-700 font-bold text-base">
+                        <i class="fa-solid fa-circle-check text-xl"></i>
+                        <span>Pendaftaran Berhasil Dikirim!</span>
+                    </div>
+                    <p class="text-xs text-emerald-800 leading-relaxed">
+                        Terima kasih, data pendaftaran atas nama <strong>{{ session('ppdb_success')['nama'] }}</strong> telah kami terima.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-white border border-emerald-200/80 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Nomor Registrasi Anda</span>
+                            <span class="text-lg font-mono font-black text-emerald-700 tracking-wider">{{ session('ppdb_success')['nomor'] }}</span>
+                        </div>
+                        <a href="{{ route('ppdb.status', ['keyword' => session('ppdb_success')['nomor']]) }}" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-colors">
+                            Cek Status Langsung
+                        </a>
+                    </div>
+                    <p class="text-[11px] text-emerald-700">Simpan nomor registrasi di atas untuk melacak status verifikasi berkas dan pengumuman hasil seleksi.</p>
+                </div>
+            @endif
+
+            <form method="POST" action="{{ route('ppdb.store') }}" class="space-y-4 sm:space-y-6">
+                @csrf
+
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">
+                        Nama Lengkap Calon Siswa <span class="text-rose-500">*</span>
+                    </label>
+                    <input type="text" name="nama_lengkap" value="{{ old('nama_lengkap') }}" required placeholder="Contoh: Muhammad Rayhan Akbar" class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                    @error('nama_lengkap')
+                        <p class="text-rose-500 text-[11px] font-bold mt-1 ml-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Nama Lengkap</label>
-                        <input type="text" placeholder="Nama Anda" class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-100 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">NISN (10 Digit)</label>
+                        <input type="text" name="nisn" value="{{ old('nisn') }}" placeholder="Contoh: 0071234567" class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
                     </div>
+
                     <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Email</label>
-                        <input type="email" placeholder="nama@domain.com" class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-100 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">
+                            Jenis Kelamin <span class="text-rose-500">*</span>
+                        </label>
+                        <select name="jenis_kelamin" required class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                            <option value="L" {{ old('jenis_kelamin') === 'L' ? 'selected' : '' }}>Laki-laki (L)</option>
+                            <option value="P" {{ old('jenis_kelamin') === 'P' ? 'selected' : '' }}>Perempuan (P)</option>
+                        </select>
                     </div>
                 </div>
-                <div class="space-y-1.5">
-                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Subjek</label>
-                    <select class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-100 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all appearance-none">
-                        <option>Pertanyaan Umum</option>
-                        <option>Info Pendaftaran (PPDB)</option>
-                        <option>Kemitraan / Kerja Sama</option>
-                    </select>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Tempat Lahir</label>
+                        <input type="text" name="tempat_lahir" value="{{ old('tempat_lahir') }}" placeholder="Contoh: Malang" class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Tanggal Lahir</label>
+                        <input type="date" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                    </div>
                 </div>
-                <div class="space-y-1.5">
-                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Pesan Anda</label>
-                    <textarea rows="4" placeholder="Tuliskan pesan pertanyaan atau kebutuhan Anda..." class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-100 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all resize-none"></textarea>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Asal Sekolah (SMP / MTs)</label>
+                        <input type="text" name="asal_sekolah" value="{{ old('asal_sekolah') }}" placeholder="Contoh: MTs Negeri 1 Malang" class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">
+                            No. WhatsApp / HP Aktif <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="text" name="no_hp" value="{{ old('no_hp') }}" required placeholder="Contoh: 081234567890" class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                        @error('no_hp')
+                            <p class="text-rose-500 text-[11px] font-bold mt-1 ml-1">{{ $message }}</p>
+                        @enderror
+                    </div>
                 </div>
+
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Nama Orang Tua / Wali</label>
+                    <input type="text" name="nama_orang_tua" value="{{ old('nama_orang_tua') }}" placeholder="Contoh: H. Bambang Sutejo" class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                </div>
+
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Alamat Tempat Tinggal</label>
+                    <textarea name="alamat" rows="3" placeholder="Alamat domisili lengkap..." class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all resize-none">{{ old('alamat') }}</textarea>
+                </div>
+
                 <button type="submit" class="w-full py-4 sm:py-5 bg-slate-900 text-white rounded-2xl font-black uppercase text-xs sm:text-sm tracking-widest hover:bg-school-primary transition-all shadow-xl shadow-slate-900/10 flex items-center justify-center gap-2">
-                    <span>Kirim Sekarang</span>
+                    <span>Kirim Formulir Pendaftaran</span>
                     <i class="fa-solid fa-paper-plane text-xs"></i>
                 </button>
             </form>

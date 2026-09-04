@@ -19,6 +19,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \Illuminate\Support\Facades\View::composer('*', function ($view) {
+            try {
+                if (\Illuminate\Support\Facades\Schema::hasTable('school_settings')) {
+                    $view->with('schoolSetting', \App\Models\SchoolSetting::getActive());
+                }
+            } catch (\Throwable $e) {
+                // Ignore during early migrations
+            }
+        });
     }
 }

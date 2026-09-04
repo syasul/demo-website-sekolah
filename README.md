@@ -1,58 +1,220 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏫 Sistem Website Sekolah & Manajemen Raport Digital (SIAS)
+### Platform Terpadu Profil Sekolah, PPDB Online, Data Pokok Siswa, dan Penginputan Nilai Raport
+*(Versi Siap Distribusi / Siap Produksi — Laravel 11 + Tailwind CSS)*
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+## 📌 Ringkasan Produk
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi Website Sekolah Modern dan Sistem Informasi Akademik berbasis **Laravel 11**, **Tailwind CSS**, dan **Alpine.js**. Dirancang khusus dengan standar siap pakai (*ready-to-deploy*) untuk jenjang SD, SMP/MTs, hingga SMA/MA/SMK.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Sistem memadukan fungsionalitas **Company Profile Publik**, **Pendaftaran Peserta Didik Baru (PPDB Online)** dengan pelacakan nomor registrasi, **Manajemen Data Siswa (Import/Export Excel dengan Preview Interaktif)**, **Panel Guru untuk Penilaian Berkala & Remidi**, serta **Portal Raport Siswa dengan Cetak PDF Resmi**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🌟 Fitur Utama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 1. Panel Administrator (Tata Usaha & Manajemen Sekolah)
+- **Data Pokok Siswa:**
+  - Input siswa manual satu per satu dengan generate akun login otomatis.
+  - **Import Excel Massal** dengan template resmi, validasi baris, dan **fitur pratinjau (preview) sebelum commit ke database**.
+  - **Export Data Siswa ke Excel** (.xlsx) per kelas untuk backup atau pelaporan dinas.
+  - Reset kata sandi instan untuk siswa yang lupa password.
+  - Fitur nonaktifkan siswa (*Soft Delete*) agar riwayat nilai historis tetap aman.
+- **PPDB (Penerimaan Peserta Didik Baru):**
+  - Monitor pendaftar masuk dengan filter status (*pending*, *diterima*, *ditolak*).
+  - Verifikasi berkas, catat review panitia, dan **Fitur Konversi Otomatis**: mengubah pendaftar diterima langsung menjadi siswa aktif dan assign ke rombel kelas dalam 1 klik.
+- **Manajemen Kelas (Rombel):**
+  - Struktur tingkat (10, 11, 12 atau 7, 8, 9) dan rombel (A, B, C, dst.).
+  - Hak akses dibatasi (*Admin hanya view & create rombel master, tidak dapat mengutak-atik nilai*).
+- **Manajemen Guru & Pembagian Tugas Mengajar:**
+  - Penugasan guru mata pelajaran per kelas (*Guru Mapel*).
+  - Penunjukan Wali Kelas dengan sinkronisasi ke lembar raport.
+- **Master Mata Pelajaran & Bobot Nilai:**
+  - Penentuan KKM (Kriteria Ketuntasan Minimal) per mata pelajaran.
+  - Konfigurasi bobot komponen nilai (Tugas: 20%, UH: 30%, UTS: 20%, UAS: 30%).
+- **Pengaturan Identitas Sekolah (Whitelabel/Settings):**
+  - Ganti Nama Sekolah, NPSN, NSM, Alamat, Kontak, Kepala Sekolah, NIP, Tahun Ajaran Aktif, dan Semester Aktif tanpa perlu mengedit baris kode.
+  - Slot upload logo kustom sekolah pembeli.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. Panel Guru (Pendidik & Wali Kelas)
+- **Dashboard Guru:** Ringkasan jumlah kelas yang diampu dan progress penilaian.
+- **Input Nilai Berkala (Tugas & Ulangan Harian):**
+  - Pembuatan sesi tugas harian dinamis (Tugas 1, Tugas 2, UH 1, UH 2, dst.).
+  - Pengisian nilai tabel interaktif langsung di browser.
+- **Input Nilai UTS & UAS:** Penilaian semester per mata pelajaran yang diampu.
+- **Sistem Remidi Otomatis:**
+  - Deteksi otomatis siswa yang memperoleh nilai di bawah KKM.
+  - Form input nilai remidi khusus dengan kalkulasi penyesuaian nilai akhir.
+- **Rekapitulasi Nilai Akhir & Penilaian Karakter:**
+  - Kalkulasi otomatis nilai akhir berbobot.
+  - Penginputan nilai keterampilan, nilai sikap (*spiritual/sosial*), dan catatan perkembangan siswa.
+  - Kunci nilai semester (*Lock Grades*) untuk mencegah perubahan pasca-finalisasi.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### 3. Portal Siswa & Wali Murid
+- **Informasi Akademik Siswa:** Detail kelas aktif, wali kelas, dan profil kesiswaan.
+- **Lembar Raport Digital:**
+  - Tampilan nilai per semester dan tahun ajaran dengan indikator ketuntasan.
+  - Catatan deskripsi kemajuan dari guru mata pelajaran dan wali kelas.
+  - **Cetak / Unduh Raport Resmi (PDF):** Layout standar format rapor lengkap dengan kop sekolah dinamis, logo, tabel nilai, dan kolom tanda tangan kepala sekolah/wali kelas.
 
-## Agentic Development
+### 4. Website Publik & Calon Siswa
+- Profil sekolah, visi misi, fasilitas, kesiswaan, dan berita terkini.
+- **Formulir PPDB Online:** Pendaftaran mandiri dengan nomor registrasi unik (`PPDB-YYYY-XXXX`).
+- **Pelacak Status PPDB:** Pencarian status seleksi via nomor registrasi atau WhatsApp pendaftar.
+- Halaman error kustom (403 Akses Ditolak, 404 Halaman Tidak Ditemukan, 500 Server Error) dengan visual branding senada.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+---
 
+## 🔑 Akun Uji Coba (Demo Accounts)
+
+Aplikasi telah dilengkapi seeder demo siap uji coba:
+
+| Role | Email Login | Password | Keterangan Akses |
+|---|---|---|---|
+| **Admin** | `admin@sekolah.test` | `password` | Akses penuh Manajemen Sekolah, Siswa, PPDB, Settings |
+| **Guru** | `guru@sekolah.test` | `password` | Akses Kelas Diampu, Input Tugas/UH, UTS, UAS, Remidi, Rekap |
+| **Siswa 1** | `siswa@sekolah.test` | `password` | NIS: 1001 — Lihat Nilai Raport & Download PDF |
+| **Siswa 2** | `rizky@sekolah.test` | `password` | NIS: 1002 — Akun Siswa Kelas 10 A |
+
+---
+
+## 💻 Kebutuhan Sistem (System Requirements)
+
+- **PHP** >= 8.2
+- **Composer** >= 2.x
+- **Node.js** >= 18.x & **NPM** >= 9.x
+- **Ekstensi PHP Wajib:** `pdo`, `sqlite3` atau `pdo_mysql`, `mbstring`, `fileinfo`, `gd` (untuk manipulasi gambar/logo), `zip` (untuk export/import Excel), `xml`.
+- **Database:** SQLite (default) atau MySQL / MariaDB 8.0+.
+
+---
+
+## 🚀 Panduan Instalasi Cepat (Quick Start)
+
+### 1. Clone & Masuk ke Direktori
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+cd demo-website-sekolah
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Pasang Dependensi Composer & NPM
+```bash
+composer install
+npm install
+```
 
-## Contributing
+### 3. Konfigurasi Lingkungan (.env)
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+*Jika menggunakan SQLite (bawaan):*
+```bash
+touch database/database.sqlite
+```
 
-## Code of Conduct
+*Jika menggunakan MySQL, sesuaikan baris berikut di `.env`:*
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database_anda
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4. Jalankan Migrasi & Seeder Demo Data
+```bash
+php artisan migrate:fresh --seed
+```
 
-## Security Vulnerabilities
+### 5. Buat Symlink Storage Publik
+```bash
+php artisan storage:link
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 6. Jalankan Server Pengembangan
+Buka dua terminal terpisah:
+```bash
+# Terminal 1: Dev Server PHP
+php artisan serve
 
-## License
+# Terminal 2: Build Aset Tailwind & Vite
+npm run dev
+```
+Akses aplikasi melalui browser di: `http://localhost:8000`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🧪 Pengujian Otomatis (Automated Testing)
+
+Aplikasi telah dilengkapi **68 automated feature & unit tests** yang mencakup otentikasi peran, keamanan route, CRUD siswa, import/export Excel, PPDB, kalkulasi remidi, hingga cetak PDF raport:
+
+```bash
+php artisan test
+```
+
+Hasil verifikasi:
+```text
+Tests:    68 passed (185 assertions)
+Duration: ~3.7s
+Result:   100% Passed
+```
+
+---
+
+## 📁 Struktur Data & Direktori Utama
+
+```
+app/
+├── Exports/
+│   ├── SiswaExport.php           # Logika download Excel data siswa
+│   └── SiswaTemplateExport.php   # Template baku import siswa
+├── Http/
+│   ├── Controllers/
+│   │   ├── Admin/                # Controller Admin (Siswa, PPDB, Guru, Kelas, Setting)
+│   │   ├── Guru/                 # Controller Guru (NilaiKomponen, Remidi, Rekap)
+│   │   ├── Siswa/                # Controller Siswa (Raport, PDF)
+│   │   └── Client/               # Controller Publik (PPDB, Berita)
+│   └── Middleware/
+│       └── CheckRole.php         # Gate otorisasi multi-role (admin, guru, siswa)
+├── Models/
+│   ├── Siswa.php                 # Profil detail siswa & relasi soft-delete
+│   ├── Pendaftar.php             # Data pendaftaran PPDB
+│   ├── SchoolSetting.php         # Konfigurasi identitas sekolah dinamis
+│   ├── NilaiKomponen.php         # Entri nilai tugas, UH, UTS, UAS, remidi
+│   └── Nilai.php                 # Rekap nilai akhir semester
+resources/views/
+├── admin/                        # View modul admin (siswa, kelas, ppdb, settings)
+├── guru/                         # View modul guru (input tugas, UTS/UAS, remidi, rekap)
+├── siswa/                        # View modul siswa & layout PDF raport
+├── client/                       # View publik (beranda, profil, PPDB, status)
+└── errors/                       # View halaman error terisolasi (403, 404, 500)
+```
+
+---
+
+## 🛡️ Keamanan & Optimasi Produksi
+
+Saat men-deploy ke server hosting/VPS produksi:
+1. Pastikan `APP_DEBUG=false` di file `.env`.
+2. Lakukan caching konfigurasi dan route:
+   ```bash
+   php artisan config:cache
+   php artisan route:cache
+   php artisan view:cache
+   ```
+3. Kompilasi aset frontend untuk produksi:
+   ```bash
+   npm run build
+   ```
+4. Pastikan folder `storage/` dan `bootstrap/cache/` memiliki hak izin tulis (*writable*):
+   ```bash
+   chmod -R 775 storage bootstrap/cache
+   ```
+
+---
+
+## 📜 Lisensi & Penggunaan
+
+Aplikasi ini dikembangkan untuk kebutuhan internal sekolah atau distribusi komersial resmi. Penggandaan dan distribusi kembali kepada pihak ketiga harus mematuhi perjanjian lisensi perangkat lunak yang disepakati bersama.

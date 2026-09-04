@@ -28,6 +28,10 @@ class DatabaseSeeder extends Seeder
             'password' => \Illuminate\Support\Facades\Hash::make('password'),
             'role' => 'kepala_sekolah',
         ]);
+
+        $this->call([
+            UserRoleSeeder::class,
+        ]);
     }
 
 }

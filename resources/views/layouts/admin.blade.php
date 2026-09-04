@@ -55,20 +55,32 @@
                         <span>Galeri Kegiatan</span>
                     </a>
 
-                    <div class="pt-6 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-4">Akademik</div>
-                    <a href="#" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl text-slate-400 hover:text-white hover:bg-white/5 transition-all">
+                    <div class="pt-6 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-4">Akademik & Siswa</div>
+                    <a href="{{ route('admin.ppdb.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('admin/ppdb*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
                         <i class="fa-solid fa-user-plus w-5 text-center"></i>
                         <span>Pendaftar PPDB</span>
                     </a>
-                    <a href="#" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl text-slate-400 hover:text-white hover:bg-white/5 transition-all">
+                    <a href="{{ route('admin.siswa.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('admin/siswa*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
+                        <i class="fa-solid fa-user-graduate w-5 text-center"></i>
+                        <span>Data Siswa</span>
+                    </a>
+                    <a href="{{ route('admin.guru.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('admin/guru*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
                         <i class="fa-solid fa-user-tie w-5 text-center"></i>
                         <span>Data Guru</span>
                     </a>
+                    <a href="{{ route('admin.kelas.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('admin/kelas*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
+                        <i class="fa-solid fa-school w-5 text-center"></i>
+                        <span>Manajemen Kelas</span>
+                    </a>
+                    <a href="{{ route('admin.mata-pelajaran.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('admin/mata-pelajaran*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
+                        <i class="fa-solid fa-book w-5 text-center"></i>
+                        <span>Mata Pelajaran</span>
+                    </a>
 
-                    <div class="pt-6 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-4">Lainnya</div>
-                    <a href="#" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl text-slate-400 hover:text-white hover:bg-white/5 transition-all">
-                        <i class="fa-solid fa-gear w-5 text-center"></i>
-                        <span>Pengaturan</span>
+                    <div class="pt-6 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-4">Sistem & Konfigurasi</div>
+                    <a href="{{ route('admin.settings.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('admin/pengaturan*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
+                        <i class="fa-solid fa-sliders w-5 text-center"></i>
+                        <span>Pengaturan Sekolah</span>
                     </a>
                 </nav>
             </div>
@@ -116,6 +128,20 @@
 
             <!-- Main Scrollable Area -->
             <main class="p-4 sm:p-6 lg:p-8">
+                @if(session('success'))
+                    <div class="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3 shadow-xs">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>
+                        <span>{{ session('success') }}</span>
+                    </div>
+                @endif
+
+                @if(session('error'))
+                    <div class="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-sm flex items-center gap-3 shadow-xs">
+                        <i class="fa-solid fa-circle-exclamation text-rose-600 text-lg"></i>
+                        <span>{{ session('error') }}</span>
+                    </div>
+                @endif
+
                 @yield('content')
             </main>
         </div>
