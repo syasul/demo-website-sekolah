@@ -53,7 +53,7 @@
 
             <div class="flex items-center justify-end gap-3 pt-5 border-t border-slate-100">
                 <a href="{{ route('admin.mata-pelajaran.index') }}" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold text-xs transition-colors">Batal</a>
-                <button type="submit" class="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-semibold text-xs shadow-xs transition-colors">Simpan Mata Pelajaran</button>
+                <button type="submit" class="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-semibold text-xs shadow-xs transition-colors">Simpan Mata Pelajaran</button>
             </div>
         </form>
     </div>

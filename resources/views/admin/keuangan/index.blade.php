@@ -28,27 +28,27 @@
     </div>
 </div>
 
-<!-- Notice Note on Payment Gateway -->
-<div class="mb-6 p-4 rounded-2xl bg-slate-900 text-white flex items-center justify-between text-xs">
+<!-- Notice Note on Payment Gateway (Light Mode) -->
+<div class="mb-6 p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-amber-900 flex items-center justify-between text-xs">
     <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-amber-400 shrink-0">
+        <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-sm shrink-0">
             <i class="fa-solid fa-circle-info"></i>
         </div>
         <div>
-            <span class="font-bold text-amber-400 block">Sistem Pembayaran: Pencatatan, Pengingat, & Histori</span>
-            <span class="text-slate-300 text-[11px]">Pembayaran online otomatis (Payment Gateway seperti Midtrans/Xendit/QRIS) dapat dikembangkan pada tahap implementasi lanjutan sesuai kesepakatan yayasan.</span>
+            <span class="font-bold text-amber-900 block">Sistem Pembayaran: Pencatatan, Pengingat, & Histori</span>
+            <span class="text-amber-700 text-[11px]">Pencatatan resmi bendahara madrasah. Fitur gateway online (QRIS/VA) dapat diintegrasikan pada tahap lanjutan.</span>
         </div>
     </div>
 </div>
 
 <!-- Generate Massal Card & Search -->
-<div class="p-5 bg-white rounded-3xl border border-slate-100 shadow-xs mb-6" x-data="{ showGenerate: false }">
+<div class="p-5 bg-white rounded-3xl border border-slate-200/80 shadow-xs mb-6" x-data="{ showGenerate: false }">
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-            <h3 class="font-black text-slate-900 text-sm uppercase">Daftar Tagihan SPP Santri</h3>
+            <h3 class="font-bold text-slate-900 text-sm">Daftar Tagihan SPP Santri</h3>
             <p class="text-xs text-slate-400 font-medium">Monitoring status pembayaran dan kirim pengingat ke akun Orang Tua.</p>
         </div>
-        <button type="button" @click="showGenerate = !showGenerate" class="py-2 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2">
+        <button type="button" @click="showGenerate = !showGenerate" class="py-2 px-4 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition-colors flex items-center gap-2 shadow-xs">
             <i class="fa-solid fa-plus text-xs"></i>
             <span>Generate Tagihan Massal</span>
         </button>

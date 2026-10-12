@@ -4,30 +4,30 @@
 @section('page_title', 'Ringkasan Sistem Terpadu')
 
 @section('content')
-<!-- Active Context Information Card -->
-<div class="mb-6 p-4 sm:p-5 bg-slate-900 rounded-2xl text-white shadow-xs border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<!-- Active Context Information Card (Light Mode) -->
+<div class="mb-6 p-4 sm:p-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
     <div class="flex items-center gap-3.5">
-        <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700/80 text-emerald-400 flex items-center justify-center text-base shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/80 text-emerald-700 flex items-center justify-center text-base shrink-0">
             <i class="fa-solid fa-layer-group"></i>
         </div>
         <div>
             <div class="flex items-center gap-2">
-                <span class="text-[11px] font-medium text-slate-400">Konteks Aktif:</span>
+                <span class="text-[11px] font-semibold text-slate-400">Konteks Aktif:</span>
                 <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider {{ $contextBadge['bg_class'] ?? 'bg-emerald-50 text-emerald-700' }}">
                     {{ $contextBadge['label'] ?? 'Semua Unit' }}
                 </span>
             </div>
-            <h2 class="text-sm sm:text-base font-bold text-white mt-0.5">MA Attaraqqie — Pusat Kendali Madrasah</h2>
+            <h2 class="text-sm sm:text-base font-bold text-slate-900 mt-0.5">MA Attaraqqie — Pusat Kendali Madrasah</h2>
         </div>
     </div>
 
     <div class="flex items-center gap-2 self-stretch md:self-auto">
-        <a href="{{ route('admin.absensi.siswa') }}" class="flex-1 md:flex-none px-3.5 py-2 bg-slate-800 hover:bg-slate-700/90 rounded-xl text-xs font-semibold text-slate-200 transition-colors flex items-center justify-center gap-2 border border-slate-700/60">
+        <a href="{{ route('admin.absensi.siswa') }}" class="flex-1 md:flex-none px-3.5 py-2 bg-slate-50 hover:bg-slate-100 rounded-xl text-xs font-semibold text-slate-700 transition-colors flex items-center justify-center gap-2 border border-slate-200/80">
             <i class="fa-solid fa-clipboard-user text-xs text-slate-400"></i>
             <span>Presensi Hari Ini</span>
         </a>
-        <a href="{{ route('admin.rdm.index') }}" class="flex-1 md:flex-none px-3.5 py-2 bg-slate-800 hover:bg-slate-700/90 rounded-xl text-xs font-semibold text-slate-200 transition-colors flex items-center justify-center gap-2 border border-slate-700/60">
-            <i class="fa-solid fa-cloud-arrow-up text-xs text-emerald-400"></i>
+        <a href="{{ route('admin.rdm.index') }}" class="flex-1 md:flex-none px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 rounded-xl text-xs font-semibold text-white transition-colors flex items-center justify-center gap-2 shadow-xs">
+            <i class="fa-solid fa-cloud-arrow-up text-xs"></i>
             <span>Simulasi RDM</span>
         </a>
     </div>
@@ -290,47 +290,47 @@
         </div>
     </div>
 
-    <!-- Quick Tool Links -->
-    <div class="p-6 bg-slate-900 rounded-3xl text-white shadow-xl flex flex-col justify-between">
+    <!-- Quick Tool Links (Light Mode) -->
+    <div class="p-6 bg-white rounded-3xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
         <div>
-            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1">Aksi Cepat Demo</span>
-            <h3 class="text-base font-black uppercase mb-4 text-white">Menu Favorit</h3>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1">Aksi Cepat</span>
+            <h3 class="text-sm font-bold uppercase mb-4 text-slate-900">Menu Utama</h3>
 
             <div class="space-y-2.5">
-                <a href="{{ route('admin.kedisiplinan.student-of-the-year') }}" class="flex items-center gap-3 p-3 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/5 transition-all">
-                    <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-sm font-bold">
+                <a href="{{ route('admin.kedisiplinan.student-of-the-year') }}" class="flex items-center gap-3 p-3 bg-slate-50 hover:bg-slate-100 rounded-2xl border border-slate-200/60 transition-colors group">
+                    <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm font-bold shrink-0">
                         <i class="fa-solid fa-trophy"></i>
                     </div>
                     <div>
-                        <div class="text-xs font-bold text-white">Leaderboard Student of the Year</div>
-                        <div class="text-[10px] text-slate-400">Ranking prestasi & karakter</div>
+                        <div class="text-xs font-bold text-slate-800 group-hover:text-slate-900">Leaderboard Student of the Year</div>
+                        <div class="text-[10px] text-slate-500">Ranking prestasi & karakter</div>
                     </div>
                 </a>
 
-                <a href="{{ route('admin.evaluasi.index') }}" class="flex items-center gap-3 p-3 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/5 transition-all">
-                    <div class="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-sm font-bold">
+                <a href="{{ route('admin.evaluasi.index') }}" class="flex items-center gap-3 p-3 bg-slate-50 hover:bg-slate-100 rounded-2xl border border-slate-200/60 transition-colors group">
+                    <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold shrink-0">
                         <i class="fa-solid fa-award"></i>
                     </div>
                     <div>
-                        <div class="text-xs font-bold text-white">Evaluasi & PDF Kinerja Guru</div>
-                        <div class="text-[10px] text-slate-400">4 Kompetensi standar dinas</div>
+                        <div class="text-xs font-bold text-slate-800 group-hover:text-slate-900">Evaluasi & PDF Kinerja Guru</div>
+                        <div class="text-[10px] text-slate-500">4 Kompetensi standar madrasah</div>
                     </div>
                 </a>
 
-                <a href="{{ route('admin.keuangan.index') }}" class="flex items-center gap-3 p-3 bg-white/5 hover:bg-white/10 rounded-2xl border border-white/5 transition-all">
-                    <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm font-bold">
+                <a href="{{ route('admin.keuangan.index') }}" class="flex items-center gap-3 p-3 bg-slate-50 hover:bg-slate-100 rounded-2xl border border-slate-200/60 transition-colors group">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold shrink-0">
                         <i class="fa-solid fa-wallet"></i>
                     </div>
                     <div>
-                        <div class="text-xs font-bold text-white">Manajemen SPP & Notifikasi</div>
-                        <div class="text-[10px] text-slate-400">Kirim pengingat ke ortu</div>
+                        <div class="text-xs font-bold text-slate-800 group-hover:text-slate-900">Manajemen SPP & Notifikasi</div>
+                        <div class="text-[10px] text-slate-500">Pencatatan & pengingat wali</div>
                     </div>
                 </a>
             </div>
         </div>
 
-        <div class="mt-6 pt-4 border-t border-white/10 text-[10px] text-slate-400 italic">
-            *Semua data demo telah disiapkan untuk presentasi proposal INXDVI / MA Attaraqqie.
+        <div class="mt-6 pt-4 border-t border-slate-100 text-[11px] text-slate-400">
+            Terhubung ke basis data terpadu MA Attaraqqie.
         </div>
     </div>
 </div>
