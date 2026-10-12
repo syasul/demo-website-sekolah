@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Admin Dashboard') — MA Attaraqqie</title>
+    <title>@yield('title', 'Admin Portal') — MA Attaraqqie</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.png') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,190 +19,239 @@
     <!-- Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-slate-50 font-sans text-slate-900 antialiased overflow-x-hidden">
+<body class="bg-slate-50 font-sans text-slate-800 antialiased overflow-x-hidden selection:bg-slate-900 selection:text-white">
     <!-- Admin Mobile Drawer Overlay -->
     <div id="admin-sidebar-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
 
     <div class="flex min-h-screen">
         <!-- Desktop Sidebar & Mobile Off-canvas Drawer -->
-        <aside id="admin-sidebar" class="w-72 bg-slate-900 text-white fixed h-full z-50 transition-transform duration-300 ease-out -translate-x-full lg:translate-x-0 flex flex-col justify-between">
-            <div class="p-5 overflow-y-auto">
-                <!-- Brand Logo -->
-                <div class="flex items-center justify-between mb-5">
-                    <a href="/" class="flex items-center gap-3">
-                        <img src="{{ asset('images/logo.png') }}" alt="Logo MA Attaraqqie" class="w-9 h-9 object-contain">
-                        <div>
-                            <span class="text-base font-black tracking-tight uppercase block leading-tight text-white">Attaraqqie</span>
-                            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block">Sistem Terpadu Multi-Unit</span>
+        <aside id="admin-sidebar" class="w-72 bg-slate-900 text-white fixed h-full z-50 transition-transform duration-300 ease-out -translate-x-full lg:translate-x-0 flex flex-col justify-between border-r border-slate-800">
+            <div class="p-4 sm:p-5 overflow-y-auto flex-1">
+                <!-- Brand Header -->
+                <div class="flex items-center justify-between mb-5 px-1">
+                    <a href="/" class="flex items-center gap-3 group">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo MA Attaraqqie" class="w-9 h-9 object-contain drop-shadow-md">
+                        <div class="min-w-0">
+                            <span class="text-sm font-black tracking-tight uppercase block leading-none text-white group-hover:text-emerald-400 transition-colors">Attaraqqie</span>
+                            <span class="text-[9px] font-semibold text-slate-400 uppercase tracking-widest block mt-1">Sistem Terpadu</span>
                         </div>
                     </a>
-                    <button id="admin-sidebar-close" aria-label="Tutup Menu" class="lg:hidden w-8 h-8 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
-                        <i class="fa-solid fa-xmark"></i>
+                    <button id="admin-sidebar-close" aria-label="Tutup Menu" class="lg:hidden w-8 h-8 rounded-lg bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 flex items-center justify-center transition-colors">
+                        <i class="fa-solid fa-xmark text-sm"></i>
                     </button>
                 </div>
 
-                <!-- TOP CONTEXT SWITCHER (Session-Based Multi-Unit Switcher) -->
-                <div class="mb-6 p-3 bg-white/5 border border-white/10 rounded-2xl">
-                    <div class="text-[9px] font-black text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
-                        <span>Konteks Aktif</span>
-                        <span class="w-2 h-2 rounded-full {{ $contextBadge['dot_class'] ?? 'bg-emerald-400' }} animate-pulse"></span>
-                    </div>
-
-                    <div class="flex items-center gap-2 p-2 rounded-xl {{ $contextBadge['bg_class'] ?? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' }} border text-xs font-bold mb-2.5">
-                        <i class="fa-solid fa-building-columns text-sm shrink-0"></i>
-                        <span class="truncate">{{ $contextBadge['label'] ?? 'Semua Unit (Yayasan Global)' }}</span>
-                    </div>
-
-                    @if(Auth::user()->isAdminGlobal())
-                    <!-- Switcher Button (Dropdown / Quick Toggle) -->
-                    <div class="relative" x-data="{ open: false }">
-                        <button type="button" @click="open = !open" class="w-full py-1.5 px-2.5 bg-white/10 hover:bg-white/20 text-slate-200 rounded-xl text-[11px] font-bold flex items-center justify-between transition-colors">
-                            <span class="flex items-center gap-1.5">
-                                <i class="fa-solid fa-arrows-rotate text-[10px]"></i>
-                                <span>Switch Dashboard</span>
-                            </span>
-                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform" :class="{'rotate-180': open}"></i>
-                        </button>
-
-                        <div x-show="open" @click.away="open = false" x-cloak class="mt-2 p-2 bg-slate-800 border border-slate-700 rounded-xl shadow-2xl space-y-1 text-xs">
-                            <form method="POST" action="{{ route('admin.switch-unit') }}">
-                                @csrf
-                                <input type="hidden" name="mode" value="global">
-                                <button type="submit" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-slate-700 text-emerald-400 font-bold flex items-center justify-between">
-                                    <span>🌐 Semua Unit (Global)</span>
-                                    @if(empty($activeUnitId) && empty($activeJenjangId))
-                                        <i class="fa-solid fa-check text-xs"></i>
-                                    @endif
-                                </button>
-                            </form>
-
-                            <div class="border-t border-slate-700 my-1 pt-1">
-                                <span class="text-[9px] font-black text-slate-400 uppercase tracking-wider px-2 block mb-1">Pilih Unit:</span>
-                                
-                                @if(isset($allJenjangs))
-                                    @foreach($allJenjangs as $jenjang)
-                                        <div class="px-2 pt-1.5 pb-0.5 text-[10px] font-bold text-slate-400">{{ $jenjang->nama }}</div>
-                                        @foreach($jenjang->units as $u)
-                                            <form method="POST" action="{{ route('admin.switch-unit') }}">
-                                                @csrf
-                                                <input type="hidden" name="mode" value="unit">
-                                                <input type="hidden" name="unit_id" value="{{ $u->id }}">
-                                                <button type="submit" class="w-full text-left px-3 py-1.5 rounded-lg hover:bg-slate-700 {{ $u->gender === 'putra' ? 'text-blue-300' : 'text-purple-300' }} flex items-center justify-between font-medium">
-                                                    <span>{{ $u->gender === 'putra' ? '🔵' : '🟣' }} {{ $u->nama }}</span>
-                                                    @if(isset($activeUnitId) && $activeUnitId == $u->id)
-                                                        <i class="fa-solid fa-check text-xs"></i>
-                                                    @endif
-                                                </button>
-                                            </form>
-                                        @endforeach
-                                    @endforeach
-                                @endif
+                <!-- SLEEK WORKSPACE / UNIT SWITCHER (Floating Popover Style - Doesn't displace navigation!) -->
+                <div class="mb-5 relative" x-data="{ open: false }">
+                    <button @click="open = !open" type="button" 
+                            class="w-full flex items-center justify-between p-2.5 rounded-xl bg-slate-800/70 hover:bg-slate-800 border border-slate-700/60 text-left transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-slate-600">
+                        <div class="flex items-center gap-2.5 min-w-0">
+                            <span class="w-2 h-2 rounded-full {{ $contextBadge['dot_class'] ?? 'bg-emerald-500' }} shrink-0"></span>
+                            <div class="min-w-0">
+                                <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block leading-none">Unit Aktif</span>
+                                <span class="text-xs font-bold text-white block truncate leading-tight mt-1">{{ $contextBadge['label'] ?? 'Semua Unit' }}</span>
                             </div>
                         </div>
-                    </div>
-                    @else
-                    <div class="text-[10px] text-slate-400 italic px-1 flex items-center gap-1.5">
-                        <i class="fa-solid fa-lock text-[9px]"></i>
-                        <span>Akses terbatas unit {{ strtoupper(Auth::user()->admin_level) }}</span>
+                        @if(Auth::user()->isAdminGlobal())
+                            <div class="w-6 h-6 rounded-lg bg-white/5 group-hover:bg-white/10 flex items-center justify-center text-slate-400 group-hover:text-white transition-colors shrink-0">
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200" :class="{ 'rotate-180': open }"></i>
+                            </div>
+                        @else
+                            <i class="fa-solid fa-lock text-[10px] text-slate-500 shrink-0" title="Akses terisolasi"></i>
+                        @endif
+                    </button>
+
+                    @if(Auth::user()->isAdminGlobal())
+                    <!-- Floating Popover Menu -->
+                    <div x-show="open" @click.away="open = false" x-cloak
+                         x-transition:enter="transition ease-out duration-150"
+                         x-transition:enter-start="opacity-0 -translate-y-1 scale-98"
+                         x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                         x-transition:leave="transition ease-in duration-100"
+                         x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                         x-transition:leave-end="opacity-0 -translate-y-1 scale-98"
+                         class="absolute left-0 right-0 top-full mt-2 bg-slate-900/95 backdrop-blur-xl border border-slate-700/80 rounded-2xl shadow-2xl p-2 z-50 space-y-1 max-h-80 overflow-y-auto">
+                        
+                        <!-- Global Option -->
+                        <form method="POST" action="{{ route('admin.switch-unit') }}">
+                            @csrf
+                            <input type="hidden" name="mode" value="global">
+                            <button type="submit" class="w-full text-left px-3 py-2 rounded-xl {{ empty($activeUnitId) && empty($activeJenjangId) ? 'bg-emerald-500/15 text-emerald-300 font-bold border border-emerald-500/30' : 'text-slate-300 hover:bg-slate-800 font-medium' }} flex items-center justify-between text-xs transition-colors">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-building-columns text-[11px] text-emerald-400"></i>
+                                    <span>Semua Unit (Yayasan Global)</span>
+                                </span>
+                                @if(empty($activeUnitId) && empty($activeJenjangId))
+                                    <i class="fa-solid fa-check text-xs text-emerald-400"></i>
+                                @endif
+                            </button>
+                        </form>
+
+                        <!-- Jenjang & Unit Grouping (Clean, Crisp, No Emojis!) -->
+                        @if(isset($allJenjangs))
+                            @foreach($allJenjangs as $jenjang)
+                                <div class="pt-2 pb-1 px-2.5 border-t border-slate-800 flex items-center justify-between">
+                                    <span class="text-[9px] font-black uppercase tracking-wider text-slate-500">{{ $jenjang->nama }} ({{ $jenjang->kode }})</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-1 px-1">
+                                    @foreach($jenjang->units as $u)
+                                        @php
+                                            $isPa = $u->gender === 'putra';
+                                            $isActive = isset($activeUnitId) && $activeUnitId == $u->id;
+                                        @endphp
+                                        <form method="POST" action="{{ route('admin.switch-unit') }}">
+                                            @csrf
+                                            <input type="hidden" name="mode" value="unit">
+                                            <input type="hidden" name="unit_id" value="{{ $u->id }}">
+                                            <button type="submit" class="w-full text-left p-2 rounded-lg text-[11px] {{ $isActive ? ($isPa ? 'bg-sky-500/20 text-sky-300 font-bold border border-sky-500/40' : 'bg-purple-500/20 text-purple-300 font-bold border border-purple-500/40') : 'text-slate-300 hover:bg-slate-800' }} flex items-center justify-between transition-colors">
+                                                <span class="flex items-center gap-1.5 truncate">
+                                                    <span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold {{ $isPa ? 'bg-sky-500/20 text-sky-400' : 'bg-purple-500/20 text-purple-400' }}">{{ $isPa ? 'PA' : 'PI' }}</span>
+                                                    <span class="truncate">{{ $isPa ? 'Putra' : 'Putri' }}</span>
+                                                </span>
+                                                @if($isActive)
+                                                    <i class="fa-solid fa-check text-[10px]"></i>
+                                                @endif
+                                            </button>
+                                        </form>
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                     @endif
                 </div>
 
-                <!-- NAVIGATION MENUS -->
-                <nav class="space-y-1">
-                    <div class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-3">Utama</div>
-                    <a href="/admin/dashboard" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/dashboard*') ? 'bg-white/10 text-white font-bold shadow-sm' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-chart-pie w-4 text-center"></i>
-                        <span>Dashboard</span>
-                    </a>
+                <!-- NAVIGATION MENUS (Structured & Clean) -->
+                <nav class="space-y-4">
+                    <!-- Utama -->
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5">Utama</div>
+                        <div class="space-y-0.5">
+                            <a href="/admin/dashboard" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/dashboard*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60 shadow-xs' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-chart-pie w-4 text-center text-slate-400"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </div>
+                    </div>
 
-                    <div class="pt-4 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-3">Akademik & Siswa</div>
-                    <a href="{{ route('admin.ppdb.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/ppdb*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-user-plus w-4 text-center"></i>
-                        <span>Pendaftar PPDB</span>
-                    </a>
-                    <a href="{{ route('admin.siswa.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/siswa*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-user-graduate w-4 text-center"></i>
-                        <span>Data Siswa / Santri</span>
-                    </a>
-                    <a href="{{ route('admin.absensi.siswa') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/absensi-siswa*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-clipboard-user w-4 text-center"></i>
-                        <span>Absensi Siswa</span>
-                    </a>
-                    <a href="{{ route('admin.kelas.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/kelas*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-school w-4 text-center"></i>
-                        <span>Manajemen Kelas</span>
-                    </a>
-                    <a href="{{ route('admin.mata-pelajaran.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/mata-pelajaran*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-book w-4 text-center"></i>
-                        <span>Mata Pelajaran & KKM</span>
-                    </a>
+                    <!-- Akademik & Siswa -->
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5">Akademik & Siswa</div>
+                        <div class="space-y-0.5">
+                            <a href="{{ route('admin.ppdb.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/ppdb*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-user-plus w-4 text-center text-slate-400"></i>
+                                <span>Pendaftar PPDB</span>
+                            </a>
+                            <a href="{{ route('admin.siswa.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/siswa*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-user-graduate w-4 text-center text-slate-400"></i>
+                                <span>Data Santri</span>
+                            </a>
+                            <a href="{{ route('admin.absensi.siswa') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/absensi-siswa*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-clipboard-user w-4 text-center text-slate-400"></i>
+                                <span>Presensi Siswa</span>
+                            </a>
+                            <a href="{{ route('admin.kelas.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/kelas*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-chalkboard w-4 text-center text-slate-400"></i>
+                                <span>Manajemen Rombel</span>
+                            </a>
+                            <a href="{{ route('admin.mata-pelajaran.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/mata-pelajaran*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-book-bookmark w-4 text-center text-slate-400"></i>
+                                <span>Mata Pelajaran & KKM</span>
+                            </a>
+                        </div>
+                    </div>
 
-                    <div class="pt-4 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-3">Pendidik & Kinerja</div>
-                    <a href="{{ route('admin.guru.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/guru*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-user-tie w-4 text-center"></i>
-                        <span>Data Asatidz / Guru</span>
-                    </a>
-                    <a href="{{ route('admin.absensi.guru') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/absensi-guru*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-calendar-check w-4 text-center"></i>
-                        <span>Absensi & Jurnal Guru</span>
-                    </a>
-                    <a href="{{ route('admin.evaluasi.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/evaluasi-guru*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-award w-4 text-center"></i>
-                        <span>Evaluasi Kinerja Guru</span>
-                    </a>
-                    <a href="{{ route('admin.rumah-jurnal.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/rumah-jurnal*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-book-bookmark w-4 text-center"></i>
-                        <span>Rumah Jurnal</span>
-                    </a>
+                    <!-- Pendidik & Kinerja -->
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5">Pendidik & Kinerja</div>
+                        <div class="space-y-0.5">
+                            <a href="{{ route('admin.guru.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/guru*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-user-tie w-4 text-center text-slate-400"></i>
+                                <span>Data Asatidz / Guru</span>
+                            </a>
+                            <a href="{{ route('admin.absensi.guru') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/absensi-guru*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-calendar-check w-4 text-center text-slate-400"></i>
+                                <span>Presensi & Jurnal Guru</span>
+                            </a>
+                            <a href="{{ route('admin.evaluasi.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/evaluasi-guru*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-award w-4 text-center text-slate-400"></i>
+                                <span>Evaluasi Kinerja Guru</span>
+                            </a>
+                            <a href="{{ route('admin.rumah-jurnal.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/rumah-jurnal*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-book-open w-4 text-center text-slate-400"></i>
+                                <span>Rumah Jurnal</span>
+                            </a>
+                        </div>
+                    </div>
 
-                    <div class="pt-4 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-3">Karakter & Kedisiplinan</div>
-                    <a href="{{ route('admin.kedisiplinan.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/kedisiplinan') || request()->is('admin/kedisiplinan/tambah') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-shield-halved w-4 text-center"></i>
-                        <span>Poin Kedisiplinan</span>
-                    </a>
-                    <a href="{{ route('admin.kedisiplinan.student-of-the-year') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/kedisiplinan/student-of-the-year*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-trophy w-4 text-center text-amber-400"></i>
-                        <span>Student of the Year</span>
-                    </a>
+                    <!-- Karakter & Kedisiplinan -->
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5">Karakter & Kedisiplinan</div>
+                        <div class="space-y-0.5">
+                            <a href="{{ route('admin.kedisiplinan.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/kedisiplinan') || request()->is('admin/kedisiplinan/tambah') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-shield-halved w-4 text-center text-slate-400"></i>
+                                <span>Poin Kedisiplinan</span>
+                            </a>
+                            <a href="{{ route('admin.kedisiplinan.student-of-the-year') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/kedisiplinan/student-of-the-year*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-trophy w-4 text-center text-amber-400"></i>
+                                <span>Student of the Year</span>
+                            </a>
+                        </div>
+                    </div>
 
-                    <div class="pt-4 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-3">Keuangan & Administrasi</div>
-                    <a href="{{ route('admin.keuangan.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/keuangan*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-wallet w-4 text-center"></i>
-                        <span>Tagihan SPP Santri</span>
-                    </a>
+                    <!-- Keuangan & Administrasi -->
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5">Keuangan & Administrasi</div>
+                        <div class="space-y-0.5">
+                            <a href="{{ route('admin.keuangan.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/keuangan*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-receipt w-4 text-center text-slate-400"></i>
+                                <span>Tagihan SPP Santri</span>
+                            </a>
+                        </div>
+                    </div>
 
-                    <div class="pt-4 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-3">Integrasi Kemenag</div>
-                    <a href="{{ route('admin.rdm.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/rdm*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-cloud-arrow-up w-4 text-center text-emerald-400"></i>
-                        <span class="flex items-center gap-2">
-                            <span>RDM Kemenag</span>
-                            <span class="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-black">SIMULASI</span>
-                        </span>
-                    </a>
+                    <!-- Integrasi Kemenag -->
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5">Integrasi Kemenag</div>
+                        <div class="space-y-0.5">
+                            <a href="{{ route('admin.rdm.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/rdm*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-cloud-arrow-up w-4 text-center text-slate-400"></i>
+                                <span class="flex items-center justify-between flex-1">
+                                    <span>RDM Kemenag</span>
+                                    <span class="text-[9px] bg-slate-800 border border-slate-700 text-slate-400 px-1.5 py-0.5 rounded font-mono font-bold">API Mock</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
 
-                    <div class="pt-4 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1.5 ml-3">Publikasi & Konfigurasi</div>
-                    <a href="{{ route('admin.articles.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/berita*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-newspaper w-4 text-center"></i>
-                        <span>Manajemen Berita</span>
-                    </a>
-                    <a href="{{ route('admin.settings.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl {{ request()->is('admin/pengaturan*') ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all text-xs">
-                        <i class="fa-solid fa-sliders w-4 text-center"></i>
-                        <span>Pengaturan Sekolah</span>
-                    </a>
+                    <!-- Konfigurasi -->
+                    <div>
+                        <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-3 mb-1.5">Sistem</div>
+                        <div class="space-y-0.5">
+                            <a href="{{ route('admin.articles.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/berita*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-newspaper w-4 text-center text-slate-400"></i>
+                                <span>Portal Berita</span>
+                            </a>
+                            <a href="{{ route('admin.settings.index') }}" class="flex items-center gap-3 px-3 py-2 rounded-xl {{ request()->is('admin/pengaturan*') ? 'bg-slate-800 text-white font-semibold border border-slate-700/60' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 font-medium' }} transition-colors text-xs">
+                                <i class="fa-solid fa-sliders w-4 text-center text-slate-400"></i>
+                                <span>Pengaturan Madrasah</span>
+                            </a>
+                        </div>
+                    </div>
                 </nav>
             </div>
             
-            <div class="p-4 border-t border-white/5">
-                <div class="p-3 bg-white/5 rounded-2xl border border-white/5 flex items-center justify-between">
+            <!-- Bottom Profile Bar -->
+            <div class="p-3 border-t border-slate-800 bg-slate-900/60">
+                <div class="flex items-center justify-between p-2 rounded-xl hover:bg-slate-800/50 transition-colors">
                     <div class="flex items-center gap-2.5 overflow-hidden">
-                        <div class="w-8 h-8 rounded-full bg-school-accent flex items-center justify-center text-slate-900 font-black italic shrink-0 text-xs">
+                        <div class="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 font-bold flex items-center justify-center shrink-0 text-xs">
                             {{ substr(Auth::user()->name ?? 'A', 0, 1) }}
                         </div>
                         <div class="overflow-hidden">
-                            <p class="text-xs font-bold truncate text-white">{{ Auth::user()->name ?? 'Administrator' }}</p>
-                            <p class="text-[9px] text-slate-400 uppercase truncate font-black">
-                                {{ Auth::user()->admin_level ? 'Admin ' . strtoupper(Auth::user()->admin_level) : 'Admin Global' }}
+                            <p class="text-xs font-semibold text-white truncate leading-tight">{{ Auth::user()->name ?? 'Administrator' }}</p>
+                            <p class="text-[10px] text-slate-400 truncate mt-0.5">
+                                {{ Auth::user()->admin_level ? 'Admin ' . ucfirst(Auth::user()->admin_level) : 'Admin Yayasan' }}
                             </p>
                         </div>
                     </div>
@@ -211,86 +259,74 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
-        <div class="flex-1 lg:ml-72 bg-slate-50 min-w-0">
-            <!-- Header -->
-            <header class="h-16 sm:h-20 bg-white/80 backdrop-blur border-b border-slate-200 sticky top-0 z-30 px-4 sm:px-8 flex items-center justify-between">
+        <!-- Main Content Area -->
+        <div class="flex-1 lg:ml-72 bg-slate-50 min-w-0 flex flex-col min-h-screen">
+            <!-- Sleek Top Navbar -->
+            <header class="h-16 bg-white border-b border-slate-200/80 sticky top-0 z-30 px-4 sm:px-8 flex items-center justify-between">
                 <div class="flex items-center gap-3 sm:gap-4 min-w-0">
-                    <button id="admin-sidebar-btn" aria-label="Buka Menu" class="lg:hidden w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-900 text-lg hover:bg-slate-200 transition-colors shrink-0">
-                        <i class="fa-solid fa-bars-staggered"></i>
+                    <button id="admin-sidebar-btn" aria-label="Buka Menu" class="lg:hidden w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 hover:bg-slate-200 transition-colors shrink-0">
+                        <i class="fa-solid fa-bars-staggered text-sm"></i>
                     </button>
-                    <div class="flex items-center gap-2 sm:gap-3 truncate">
-                        <h2 class="text-sm sm:text-lg font-black tracking-tight text-slate-900 uppercase truncate">@yield('page_title', 'Dashboard')</h2>
-                        <!-- Context badge in Header -->
-                        <span class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-black tracking-wider uppercase {{ $contextBadge['bg_class'] ?? 'bg-emerald-50 text-emerald-700' }} border">
+                    <div class="flex items-center gap-2.5 truncate">
+                        <h1 class="text-sm sm:text-base font-bold text-slate-900 tracking-tight truncate">@yield('page_title', 'Dashboard')</h1>
+                        
+                        <!-- Minimalist Context Chip in Navbar -->
+                        <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-700 border border-slate-200/80">
                             <span class="w-1.5 h-1.5 rounded-full {{ $contextBadge['dot_class'] ?? 'bg-emerald-500' }}"></span>
-                            <span>{{ $contextBadge['label'] ?? 'Global' }}</span>
+                            <span>{{ $contextBadge['label'] ?? 'Semua Unit' }}</span>
                         </span>
                     </div>
                 </div>
 
-                <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+                <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
                     <!-- Notification Bell -->
-                    <a href="{{ route('notifikasi.index') }}" class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200 transition-all" title="Notifikasi In-App">
-                        <i class="fa-solid fa-bell text-sm sm:text-base"></i>
+                    <a href="{{ route('notifikasi.index') }}" class="relative w-9 h-9 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center justify-center transition-colors" title="Notifikasi">
+                        <i class="fa-regular fa-bell text-sm"></i>
                         @if(Auth::check() && Auth::user()->unreadNotifikasisCount() > 0)
-                            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
-                            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"></span>
+                            <span class="absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full"></span>
                         @endif
                     </a>
 
-                    <!-- Logout -->
-                    <form method="POST" action="{{ route('logout') }}">
+                    <!-- Clean Logout Button -->
+                    <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
-                        <button type="submit" class="flex items-center gap-1.5 px-3 py-2 bg-rose-50 text-rose-600 rounded-xl font-bold text-xs hover:bg-rose-100 transition-all">
-                            <i class="fa-solid fa-right-from-bracket"></i>
+                        <button type="submit" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold text-xs transition-colors" title="Keluar">
+                            <i class="fa-solid fa-arrow-right-from-bracket text-xs"></i>
                             <span class="hidden sm:inline">Keluar</span>
                         </button>
                     </form>
                 </div>
             </header>
 
-            <!-- Demo Mode Banner Notice -->
-            <div class="bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border-b border-amber-200/60 px-4 sm:px-8 py-2 text-[11px] font-semibold text-amber-900 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <span class="bg-amber-500 text-white font-black text-[9px] px-1.5 py-0.5 rounded uppercase">Demo SIAS Multi-Unit</span>
-                    <span>Versi Terpadu MA Attaraqqie (Multi-Jenjang, Segmentasi Putra/Putri & Layanan Wali Murid)</span>
-                </div>
-                <div class="hidden sm:flex items-center gap-3 text-[10px] text-amber-700">
-                    <span>Ganti unit kapan saja via tombol di sidebar</span>
-                </div>
-            </div>
-
-            <!-- Main Scrollable Area -->
-            <main class="p-4 sm:p-6 lg:p-8">
+            <!-- Main Content Container -->
+            <main class="p-4 sm:p-6 lg:p-8 flex-1">
                 @if(session('success'))
-                    <div class="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3 shadow-xs">
-                        <i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>
+                    <div class="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-3 shadow-xs">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>
                         <span>{{ session('success') }}</span>
                     </div>
                 @endif
 
                 @if(session('error'))
-                    <div class="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-sm flex items-center gap-3 shadow-xs">
-                        <i class="fa-solid fa-circle-exclamation text-rose-600 text-lg"></i>
+                    <div class="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center gap-3 shadow-xs">
+                        <i class="fa-solid fa-circle-exclamation text-rose-600 text-base"></i>
                         <span>{{ session('error') }}</span>
-                    </div>
-                @endif
-
-                @if(session('info'))
-                    <div class="mb-6 p-4 rounded-2xl bg-blue-50 border border-blue-200 text-blue-800 text-sm flex items-center gap-3 shadow-xs">
-                        <i class="fa-solid fa-circle-info text-blue-600 text-lg"></i>
-                        <span>{{ session('info') }}</span>
                     </div>
                 @endif
 
                 @yield('content')
             </main>
+
+            <!-- Minimalist Footer -->
+            <footer class="px-6 py-4 border-t border-slate-200/60 text-center sm:flex sm:items-center sm:justify-between text-xs text-slate-400">
+                <p>&copy; {{ date('Y') }} MA At-Taraqqie. Sistem Informasi Akademik & Raport Digital.</p>
+                <p class="mt-1 sm:mt-0 font-medium">Platform Terpadu Multi-Unit</p>
+            </footer>
         </div>
     </div>
 
+    <!-- Mobile Drawer Script -->
     <script>
-        // Admin Sidebar Drawer Toggle
         const adminSidebarBtn = document.getElementById('admin-sidebar-btn');
         const adminSidebarClose = document.getElementById('admin-sidebar-close');
         const adminSidebarOverlay = document.getElementById('admin-sidebar-overlay');
@@ -322,6 +358,5 @@
             if (e.key === 'Escape') closeAdminSidebar();
         });
     </script>
-    @yield('scripts')
 </body>
 </html>

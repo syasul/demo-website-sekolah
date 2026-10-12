@@ -1,53 +1,61 @@
 @extends('layouts.admin')
 
 @section('title', 'Tambah Mata Pelajaran')
-@section('page_title', 'Tambah Mata Pelajaran')
+@section('page_title', 'Mata Pelajaran')
 
 @section('content')
-<div class="mb-6">
-    <a href="{{ route('admin.mata-pelajaran.index') }}" class="text-sm font-bold text-slate-500 hover:text-school-primary transition">
-        <i class="fa-solid fa-arrow-left mr-2"></i>Kembali ke Daftar Mapel
-    </a>
-</div>
+<div class="space-y-6 max-w-2xl">
+    <div class="flex items-center gap-2">
+        <a href="{{ route('admin.mata-pelajaran.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors">
+            <i class="fa-solid fa-arrow-left text-[10px]"></i>
+            <span>Kembali ke Daftar Mapel</span>
+        </a>
+    </div>
 
-<div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-100 max-w-3xl">
-    <form action="{{ route('admin.mata-pelajaran.store') }}" method="POST">
-        @csrf
-        
-        <div class="mb-6">
-            <label for="kode_mapel" class="block text-sm font-bold text-slate-700 mb-2">Kode Mapel</label>
-            <input type="text" name="kode_mapel" id="kode_mapel" value="{{ old('kode_mapel') }}" placeholder="Contoh: MAT, IPA, BIND" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-school-primary focus:ring focus:ring-school-primary/20 transition-all outline-none font-mono" required>
-            @error('kode_mapel')
-                <p class="mt-2 text-xs text-rose-500 font-medium">{{ $message }}</p>
-            @enderror
+    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div class="pb-5 mb-6 border-b border-slate-100">
+            <h2 class="text-base font-bold text-slate-900">Tambah Mata Pelajaran Baru</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Definisikan kode unik dan nama mata pelajaran untuk kurikulum madrasah.</p>
         </div>
 
-        <div class="mb-6">
-            <label for="nama_mapel" class="block text-sm font-bold text-slate-700 mb-2">Nama Mata Pelajaran</label>
-            <input type="text" name="nama_mapel" id="nama_mapel" value="{{ old('nama_mapel') }}" placeholder="Contoh: Matematika Wajib" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-school-primary focus:ring focus:ring-school-primary/20 transition-all outline-none" required>
-            @error('nama_mapel')
-                <p class="mt-2 text-xs text-rose-500 font-medium">{{ $message }}</p>
-            @enderror
-        </div>
+        <form action="{{ route('admin.mata-pelajaran.store') }}" method="POST" class="space-y-5">
+            @csrf
+            
+            <div>
+                <label for="kode_mapel" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Kode Mapel <span class="text-rose-500">*</span></label>
+                <input type="text" name="kode_mapel" id="kode_mapel" value="{{ old('kode_mapel') }}" placeholder="Contoh: MAT, IPA, ARB-10" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-xs font-mono font-bold text-slate-800 focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all outline-none" required>
+                @error('kode_mapel')
+                    <p class="mt-1.5 text-xs text-rose-500 font-medium">{{ $message }}</p>
+                @enderror
+            </div>
 
-        <div class="mb-8">
-            <label for="tingkat" class="block text-sm font-bold text-slate-700 mb-2">Tingkat (Opsional)</label>
-            <select name="tingkat" id="tingkat" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-school-primary focus:ring focus:ring-school-primary/20 transition-all outline-none">
-                <option value="">-- Berlaku Semua Tingkat --</option>
-                <option value="10" {{ old('tingkat') == '10' ? 'selected' : '' }}>10 (Sepuluh)</option>
-                <option value="11" {{ old('tingkat') == '11' ? 'selected' : '' }}>11 (Sebelas)</option>
-                <option value="12" {{ old('tingkat') == '12' ? 'selected' : '' }}>12 (Dua Belas)</option>
-            </select>
-            <p class="mt-2 text-xs text-slate-400">Pilih jika mapel ini hanya diajarkan di tingkat tertentu.</p>
-            @error('tingkat')
-                <p class="mt-2 text-xs text-rose-500 font-medium">{{ $message }}</p>
-            @enderror
-        </div>
+            <div>
+                <label for="nama_mapel" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nama Mata Pelajaran <span class="text-rose-500">*</span></label>
+                <input type="text" name="nama_mapel" id="nama_mapel" value="{{ old('nama_mapel') }}" placeholder="Contoh: Fikih & Ushul Fikih" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-xs font-semibold text-slate-800 focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all outline-none" required>
+                @error('nama_mapel')
+                    <p class="mt-1.5 text-xs text-rose-500 font-medium">{{ $message }}</p>
+                @enderror
+            </div>
 
-        <div class="flex justify-end gap-4 border-t border-slate-100 pt-6">
-            <button type="reset" class="px-6 py-3 bg-slate-100 text-slate-600 rounded-xl font-bold text-sm hover:bg-slate-200 transition">Reset</button>
-            <button type="submit" class="px-6 py-3 bg-school-primary text-white rounded-xl font-bold text-sm hover:bg-school-primary/90 transition shadow-lg shadow-school-primary/30">Simpan Mapel</button>
-        </div>
-    </form>
+            <div>
+                <label for="tingkat" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Alokasi Tingkat</label>
+                <select name="tingkat" id="tingkat" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-xs font-semibold text-slate-800 focus:bg-white focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all outline-none">
+                    <option value="">-- Berlaku Semua Tingkat --</option>
+                    <option value="10" {{ old('tingkat') == '10' ? 'selected' : '' }}>Tingkat 10 (Sepuluh)</option>
+                    <option value="11" {{ old('tingkat') == '11' ? 'selected' : '' }}>Tingkat 11 (Sebelas)</option>
+                    <option value="12" {{ old('tingkat') == '12' ? 'selected' : '' }}>Tingkat 12 (Dua Belas)</option>
+                </select>
+                <p class="mt-1.5 text-[11px] text-slate-400">Pilih jika mata pelajaran ini hanya diajarkan di jenjang kelas tertentu.</p>
+                @error('tingkat')
+                    <p class="mt-1.5 text-xs text-rose-500 font-medium">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="flex items-center justify-end gap-3 pt-5 border-t border-slate-100">
+                <a href="{{ route('admin.mata-pelajaran.index') }}" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold text-xs transition-colors">Batal</a>
+                <button type="submit" class="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-semibold text-xs shadow-xs transition-colors">Simpan Mata Pelajaran</button>
+            </div>
+        </form>
+    </div>
 </div>
 @endsection

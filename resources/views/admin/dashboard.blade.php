@@ -5,29 +5,29 @@
 
 @section('content')
 <!-- Active Context Information Card -->
-<div class="mb-6 p-4 sm:p-6 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl sm:rounded-3xl text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-    <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-2xl {{ $contextBadge['bg_class'] ?? 'bg-emerald-500/20 text-emerald-400' }} border flex items-center justify-center text-xl shrink-0">
-            <i class="fa-solid fa-school-flag"></i>
+<div class="mb-6 p-4 sm:p-5 bg-slate-900 rounded-2xl text-white shadow-xs border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div class="flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700/80 text-emerald-400 flex items-center justify-center text-base shrink-0">
+            <i class="fa-solid fa-layer-group"></i>
         </div>
         <div>
             <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Konteks Aktif:</span>
-                <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase {{ $contextBadge['bg_class'] ?? 'bg-emerald-500/20 text-emerald-300' }} border">
-                    {{ $contextBadge['label'] ?? 'Global' }}
+                <span class="text-[11px] font-medium text-slate-400">Konteks Aktif:</span>
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider {{ $contextBadge['bg_class'] ?? 'bg-emerald-50 text-emerald-700' }}">
+                    {{ $contextBadge['label'] ?? 'Semua Unit' }}
                 </span>
             </div>
-            <h1 class="text-lg sm:text-xl font-black tracking-tight text-white mt-0.5">MA Attaraqqie — Pusat Kendali Madrasah</h1>
+            <h2 class="text-sm sm:text-base font-bold text-white mt-0.5">MA Attaraqqie — Pusat Kendali Madrasah</h2>
         </div>
     </div>
 
     <div class="flex items-center gap-2 self-stretch md:self-auto">
-        <a href="{{ route('admin.absensi.siswa') }}" class="flex-1 md:flex-none px-3.5 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-xs font-bold text-white transition-all flex items-center justify-center gap-2">
-            <i class="fa-solid fa-clipboard-user text-xs"></i>
+        <a href="{{ route('admin.absensi.siswa') }}" class="flex-1 md:flex-none px-3.5 py-2 bg-slate-800 hover:bg-slate-700/90 rounded-xl text-xs font-semibold text-slate-200 transition-colors flex items-center justify-center gap-2 border border-slate-700/60">
+            <i class="fa-solid fa-clipboard-user text-xs text-slate-400"></i>
             <span>Presensi Hari Ini</span>
         </a>
-        <a href="{{ route('admin.rdm.index') }}" class="flex-1 md:flex-none px-3.5 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-xl text-xs font-black text-white transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
-            <i class="fa-solid fa-cloud-arrow-up text-xs"></i>
+        <a href="{{ route('admin.rdm.index') }}" class="flex-1 md:flex-none px-3.5 py-2 bg-slate-800 hover:bg-slate-700/90 rounded-xl text-xs font-semibold text-slate-200 transition-colors flex items-center justify-center gap-2 border border-slate-700/60">
+            <i class="fa-solid fa-cloud-arrow-up text-xs text-emerald-400"></i>
             <span>Simulasi RDM</span>
         </a>
     </div>
