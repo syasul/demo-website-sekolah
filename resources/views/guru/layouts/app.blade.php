@@ -48,10 +48,28 @@
                         <span>Dashboard</span>
                     </a>
 
-                    <div class="pt-6 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-4">Pembelajaran</div>
+                    <div class="pt-6 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-4">Pembelajaran & Presensi</div>
                     <a href="{{ route('guru.kelas.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('guru/kelas*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
                         <i class="fa-solid fa-chalkboard-user w-5 text-center"></i>
                         <span>Kelas & Siswa</span>
+                    </a>
+                    <a href="{{ route('guru.absensi.siswa.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('guru/absensi-siswa*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
+                        <i class="fa-solid fa-clipboard-user w-5 text-center"></i>
+                        <span>Presensi Siswa</span>
+                    </a>
+                    <a href="{{ route('guru.jurnal.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('guru/jurnal*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
+                        <i class="fa-solid fa-book-open w-5 text-center"></i>
+                        <span>Jurnal Mengajar</span>
+                    </a>
+
+                    <div class="pt-6 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-4">Riset & Kinerja</div>
+                    <a href="{{ route('guru.rumah-jurnal.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('guru/rumah-jurnal*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
+                        <i class="fa-solid fa-book-bookmark w-5 text-center"></i>
+                        <span>Rumah Jurnal</span>
+                    </a>
+                    <a href="{{ route('guru.evaluasi.index') }}" class="flex items-center gap-3.5 px-4 py-3 rounded-2xl {{ request()->is('guru/evaluasi-diri*') ? 'bg-white/10 text-white font-bold shadow-lg border border-white/5' : 'text-slate-400 hover:text-white hover:bg-white/5 font-medium' }} transition-all">
+                        <i class="fa-solid fa-award w-5 text-center"></i>
+                        <span>Evaluasi Kinerja Diri</span>
                     </a>
 
                     <div class="pt-6 text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 ml-4">Penilaian Berkala</div>
@@ -111,11 +129,13 @@
                     </button>
                     <h2 class="text-base sm:text-xl font-extrabold tracking-tight text-slate-900 uppercase truncate">@yield('page_title', 'Dashboard Guru')</h2>
                 </div>
-                <div class="flex items-center gap-3 sm:gap-6 shrink-0">
-                    <button class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200 transition-all">
+                    <a href="{{ route('notifikasi.index') }}" class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200 transition-all" title="Notifikasi In-App">
                         <i class="fa-solid fa-bell text-sm sm:text-base"></i>
-                        <span class="absolute top-2 right-2 w-2 h-2 bg-emerald-500 rounded-full"></span>
-                    </button>
+                        @if(Auth::check() && Auth::user()->unreadNotifikasisCount() > 0)
+                            <span class="absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
+                            <span class="absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full"></span>
+                        @endif
+                    </a>
                     <!-- Logout -->
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

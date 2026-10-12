@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Traits\BelongsToUnit;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pendaftar extends Model
 {
-    use HasFactory;
+    use HasFactory, BelongsToUnit;
 
     protected $fillable = [
         'nomor_pendaftaran',
@@ -18,6 +19,8 @@ class Pendaftar extends Model
         'tempat_lahir',
         'tanggal_lahir',
         'asal_sekolah',
+        'jenjang_id',
+        'unit_id',
         'nama_orang_tua',
         'no_hp',
         'alamat',
@@ -33,6 +36,14 @@ class Pendaftar extends Model
             'tanggal_lahir' => 'date',
             'is_converted' => 'boolean',
         ];
+    }
+
+    /**
+     * Get the jenjang applied for.
+     */
+    public function jenjang(): BelongsTo
+    {
+        return $this->belongsTo(Jenjang::class, 'jenjang_id');
     }
 
     /**

@@ -116,6 +116,24 @@
                     @enderror
                 </div>
 
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">
+                        Pilihan Jenjang Pendidikan <span class="text-rose-500">*</span>
+                    </label>
+                    <select name="jenjang_id" required class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
+                        @if(isset($jenjangs) && $jenjangs->isNotEmpty())
+                            @foreach($jenjangs as $j)
+                                <option value="{{ $j->id }}" {{ (old('jenjang_id') == $j->id || $j->kode === 'MA') ? 'selected' : '' }}>
+                                    {{ $j->nama }} ({{ $j->kode }})
+                                </option>
+                            @endforeach
+                        @else
+                            <option value="">Madrasah Aliyah (MA)</option>
+                        @endif
+                    </select>
+                    <p class="text-[10px] text-slate-400 ml-1">Penempatan unit (Putra / Putri) otomatis disesuaikan secara terpisah sesuai syariat.</p>
+                </div>
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div class="space-y-1.5">
                         <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">NISN (10 Digit)</label>
@@ -124,11 +142,11 @@
 
                     <div class="space-y-1.5">
                         <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">
-                            Jenis Kelamin <span class="text-rose-500">*</span>
+                            Jenis Kelamin & Unit <span class="text-rose-500">*</span>
                         </label>
                         <select name="jenis_kelamin" required class="w-full px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:outline-none focus:border-school-primary transition-all">
-                            <option value="L" {{ old('jenis_kelamin') === 'L' ? 'selected' : '' }}>Laki-laki (L)</option>
-                            <option value="P" {{ old('jenis_kelamin') === 'P' ? 'selected' : '' }}>Perempuan (P)</option>
+                            <option value="L" {{ old('jenis_kelamin') === 'L' ? 'selected' : '' }}>Laki-laki (Masuk Unit Putra)</option>
+                            <option value="P" {{ old('jenis_kelamin') === 'P' ? 'selected' : '' }}>Perempuan (Masuk Unit Putri)</option>
                         </select>
                     </div>
                 </div>

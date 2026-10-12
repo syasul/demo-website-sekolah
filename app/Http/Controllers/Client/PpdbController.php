@@ -13,7 +13,8 @@ class PpdbController extends Controller
      */
     public function index()
     {
-        return view('client.ppdb');
+        $jenjangs = \App\Models\Jenjang::with('units')->where('aktif', true)->get();
+        return view('client.ppdb', compact('jenjangs'));
     }
 
     /**
@@ -25,6 +26,7 @@ class PpdbController extends Controller
             'nama_lengkap' => 'required|string|max:255',
             'nisn' => 'nullable|string|max:20',
             'jenis_kelamin' => 'required|in:L,P',
+            'jenjang_id' => 'nullable|exists:jenjangs,id',
             'tempat_lahir' => 'nullable|string|max:100',
             'tanggal_lahir' => 'nullable|date',
             'asal_sekolah' => 'nullable|string|max:255',
@@ -38,11 +40,22 @@ class PpdbController extends Controller
 
         $nomorPendaftaran = Pendaftar::generateNomor();
 
+        $gender = ($request->jenis_kelamin === 'L') ? 'putra' : 'putri';
+        $unitId = null;
+        if ($request->filled('jenjang_id')) {
+            $unit = \App\Models\Unit::where('jenjang_id', $request->jenjang_id)
+                ->where('gender', $gender)
+                ->first();
+            $unitId = $unit?->id;
+        }
+
         $pendaftar = Pendaftar::create([
             'nomor_pendaftaran' => $nomorPendaftaran,
             'nama_lengkap' => $request->nama_lengkap,
             'nisn' => $request->nisn,
             'jenis_kelamin' => $request->jenis_kelamin,
+            'jenjang_id' => $request->jenjang_id,
+            'unit_id' => $unitId,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
             'asal_sekolah' => $request->asal_sekolah,

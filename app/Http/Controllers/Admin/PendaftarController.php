@@ -114,10 +114,14 @@ class PendaftarController extends Controller
                 'kelas_id' => $request->kelas_id,
             ]);
 
+            $kelasObj = Kelas::find($request->kelas_id);
+            $targetUnitId = $pendaftar->unit_id ?: $kelasObj?->unit_id;
+
             // 2. Buat profil Siswa
             Siswa::create([
                 'user_id' => $user->id,
                 'kelas_id' => $request->kelas_id,
+                'unit_id' => $targetUnitId,
                 'nis' => $nis,
                 'nisn' => $pendaftar->nisn,
                 'jenis_kelamin' => $pendaftar->jenis_kelamin,

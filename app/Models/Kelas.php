@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\BelongsToUnit;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -9,12 +10,13 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Kelas extends Model
 {
-    use HasFactory;
+    use HasFactory, BelongsToUnit;
 
     protected $fillable = [
         'tingkat',
         'nama_rombel',
         'wali_kelas_id',
+        'unit_id',
     ];
 
     /**

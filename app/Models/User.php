@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password', 'role', 'kelas_id'])]
+#[Fillable(['name', 'email', 'password', 'role', 'admin_level', 'kelas_id'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -38,6 +38,21 @@ class User extends Authenticatable
         return $this->role === 'admin';
     }
 
+    public function isAdminGlobal(): bool
+    {
+        return $this->role === 'admin' && ($this->admin_level === 'global' || empty($this->admin_level));
+    }
+
+    public function isAdminPutra(): bool
+    {
+        return $this->role === 'admin' && $this->admin_level === 'putra';
+    }
+
+    public function isAdminPutri(): bool
+    {
+        return $this->role === 'admin' && $this->admin_level === 'putri';
+    }
+
     /**
      * Check if user is Guru
      */
@@ -52,6 +67,51 @@ class User extends Authenticatable
     public function isSiswa(): bool
     {
         return $this->role === 'siswa';
+    }
+
+    /**
+     * Check if user is Orang Tua
+     */
+    public function isOrangTua(): bool
+    {
+        return $this->role === 'orang_tua';
+    }
+
+    /**
+     * Get children linked to this parent (Orang Tua).
+     */
+    public function anaks(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'orang_tua_siswa', 'orang_tua_id', 'siswa_id');
+    }
+
+    /**
+     * Get parents linked to this student.
+     */
+    public function orangTuas(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'orang_tua_siswa', 'siswa_id', 'orang_tua_id');
+    }
+
+    /**
+     * Get units where this teacher is assigned.
+     */
+    public function units(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Unit::class, 'guru_unit', 'guru_id', 'unit_id');
+    }
+
+    /**
+     * In-app notifications.
+     */
+    public function notifikasis(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Notifikasi::class, 'user_id');
+    }
+
+    public function unreadNotifikasisCount(): int
+    {
+        return $this->notifikasis()->whereNull('dibaca_at')->count();
     }
 
     /**
